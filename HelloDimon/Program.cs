@@ -10,7 +10,10 @@ namespace HelloDimon
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, Dimon! Where is your calc?");
+            Console.WriteLine("Hello, bro! Enter your name, please...");
+            string s = Console.ReadLine();
+
+            Console.WriteLine($"I'm happy greeting you, Mr.{s}!");
             Console.ReadLine();
         }
     }
