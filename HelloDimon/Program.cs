@@ -14,7 +14,6 @@ namespace HelloDimon
             string s = Console.ReadLine();
 
             Console.WriteLine($"I'm happy greeting you, Mr.{s}!");
-            Console.ReadLine();
         }
     }
 }
