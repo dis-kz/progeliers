@@ -1,0 +1,3523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DataModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BaseSize">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="10" />
+          <Property Name="Attribute" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="BlockEquipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdBlock" Type="int" />
+          <Property Name="IdEquip" Type="int" />
+          <Property Name="TypeEquip" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="CbCurrent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CbCurrentIcu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCbCurrent" Type="int" />
+          <Property Name="IdIcuValue" Type="int" />
+        </EntityType>
+        <EntityType Name="Contactor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMotorPow" Type="int" />
+          <Property Name="IdMotorCur" Type="int" />
+          <Property Name="IdContCur" Type="int" />
+          <Property Name="IdHasRelay" Type="int" />
+          <Property Name="IdTypeCord" Type="int" />
+          <Property Name="IdTypeCoilCur" Type="int" />
+          <Property Name="IdManufacturer" Type="int" />
+          <Property Name="IdSeria" Type="int" />
+          <Property Name="ContCatNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="RelayCabNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="IdCurrentBreaker" Type="int" />
+          <Property Name="ReloadCurValue" Type="nvarchar" MaxLength="255" />
+          <Property Name="IdIcu" Type="int" />
+        </EntityType>
+        <EntityType Name="CurrentBreaker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdManufacturer" Type="int" />
+          <Property Name="IdSeria" Type="int" />
+          <Property Name="IdCbCurrent" Type="int" />
+          <Property Name="IdIcuLiteral" Type="int" />
+          <Property Name="IdIcuValue" Type="int" />
+          <Property Name="IdPoleNumber" Type="int" />
+          <Property Name="IdVoltage" Type="int" />
+          <Property Name="IdDisType" Type="int" />
+          <Property Name="IdDisModel" Type="int" />
+          <Property Name="IdDisCurrent" Type="int" />
+          <Property Name="CbCatNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="DisCatNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="Note" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CurrentTransform">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdManufacturer" Type="int" />
+          <Property Name="TypeSize" Type="nvarchar" MaxLength="100" />
+          <Property Name="TransFactor" Type="nvarchar" MaxLength="100" />
+          <Property Name="MeasureClass" Type="nvarchar" MaxLength="100" />
+          <Property Name="Power" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DesignNumber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdManufacturer" Type="int" />
+          <Property Name="IdSeria" Type="int" />
+          <Property Name="IdCbCurrent" Type="int" />
+          <Property Name="IdPoleNumber" Type="int" />
+          <Property Name="IdDesignType" Type="int" />
+          <Property Name="DesCatNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="Note" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DesignType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DisCurrent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DisCurrentCb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdDisCurrent" Type="int" />
+          <Property Name="IdCbCurrent" Type="int" />
+        </EntityType>
+        <EntityType Name="DisCurrentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdDisCurrent" Type="int" />
+          <Property Name="IdDisType" Type="int" />
+        </EntityType>
+        <EntityType Name="DisModel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DisType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DisTypeModel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdDisModel" Type="int" />
+          <Property Name="IdDisType" Type="int" />
+          <Property Name="IdManufacturer" Type="int" />
+        </EntityType>
+        <EntityType Name="EquipNote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProjectNumber" Type="int" />
+          <Property Name="Text" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="FileData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Extension" Type="nvarchar" MaxLength="25" />
+          <Property Name="Size" Type="bigint" />
+          <Property Name="Author" Type="nvarchar" MaxLength="255" />
+          <Property Name="Data" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="FunctionRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FunctionId" Type="int" />
+          <Property Name="RoleId" Type="int" />
+        </EntityType>
+        <EntityType Name="Functions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FunctionName" Type="nvarchar" MaxLength="200" />
+          <Property Name="FormName" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="IcuLiteral">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Literal" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IcuValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Literal" Type="nvarchar" MaxLength="10" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ManufDisCurrent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdManufacturer" Type="int" />
+          <Property Name="IdDisCurrent" Type="int" />
+        </EntityType>
+        <EntityType Name="ModulEquip">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdManufacturer" Type="int" />
+          <Property Name="Feature2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Feature3" Type="nvarchar" MaxLength="100" />
+          <Property Name="Feature4" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="NumericParam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="float" />
+        </EntityType>
+        <EntityType Name="PoleNumber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdNumber" Type="int" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Note" Type="varchar(max)" />
+          <Property Name="IdManager" Type="int" />
+          <Property Name="IdImplementer" Type="int" />
+          <Property Name="IdEditor" Type="int" />
+          <Property Name="Version" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="IdState" Type="int" />
+          <Property Name="IdStage" Type="int" />
+        </EntityType>
+        <EntityType Name="ProjectBlock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="10" />
+          <Property Name="Functional" Type="nvarchar" MaxLength="10" />
+          <Property Name="IdBaseH" Type="int" />
+          <Property Name="IdBaseB" Type="int" />
+          <Property Name="IdVSize" Type="int" />
+          <Property Name="IdSchema" Type="int" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="IdProjectNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="ProjectEquipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProjectNumber" Type="int" />
+          <Property Name="IdCbr" Type="int" />
+          <Property Name="IdCont" Type="int" />
+          <Property Name="IdModulEq" Type="int" />
+          <Property Name="IdCtr" Type="int" />
+          <Property Name="Analog" Type="bit" />
+          <Property Name="IdNote" Type="int" />
+        </EntityType>
+        <EntityType Name="ProjectFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProjectNumber" Type="int" />
+          <Property Name="IdFile" Type="int" />
+        </EntityType>
+        <EntityType Name="ProjectNumber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="ProjectStage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Stage" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProjectState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Schema">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Indexx" Type="nvarchar" MaxLength="255" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Note" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Seria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StringParam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="Login" Type="varchar" MaxLength="25" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Voltage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VSize">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdManuf" Type="int" />
+          <Property Name="IdPoleNumber" Type="int" />
+          <Property Name="IdSeria" Type="int" />
+          <Property Name="IdCbrCurrent" Type="int" />
+          <Property Name="IdSchema" Type="int" />
+          <Property Name="SizeName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Fraction" Type="int" />
+        </EntityType>
+        <Association Name="FK_BlockEquipment_ProjectBlock">
+          <End Role="ProjectBlock" Type="Self.ProjectBlock" Multiplicity="0..1" />
+          <End Role="BlockEquipment" Type="Self.BlockEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectBlock">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlockEquipment">
+              <PropertyRef Name="IdBlock" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlockEquipment_ProjectEquipment">
+          <End Role="ProjectEquipment" Type="Self.ProjectEquipment" Multiplicity="0..1" />
+          <End Role="BlockEquipment" Type="Self.BlockEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectEquipment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlockEquipment">
+              <PropertyRef Name="IdEquip" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CbCurrentIcu_CbCurrent">
+          <End Role="CbCurrent" Type="Self.CbCurrent" Multiplicity="0..1" />
+          <End Role="CbCurrentIcu" Type="Self.CbCurrentIcu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CbCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CbCurrentIcu">
+              <PropertyRef Name="IdCbCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CbCurrentIcu_IcuValue">
+          <End Role="IcuValue" Type="Self.IcuValue" Multiplicity="0..1" />
+          <End Role="CbCurrentIcu" Type="Self.CbCurrentIcu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IcuValue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CbCurrentIcu">
+              <PropertyRef Name="IdIcuValue" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_NumericParam">
+          <End Role="NumericParam" Type="Self.NumericParam" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumericParam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdMotorPow" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_NumericParam1">
+          <End Role="NumericParam" Type="Self.NumericParam" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumericParam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdMotorCur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_NumericParam2">
+          <End Role="NumericParam" Type="Self.NumericParam" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumericParam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdContCur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_Seria">
+          <End Role="Seria" Type="Self.Seria" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdSeria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_StringParam">
+          <End Role="StringParam" Type="Self.StringParam" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StringParam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdHasRelay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_StringParam1">
+          <End Role="StringParam" Type="Self.StringParam" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StringParam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdTypeCord" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_StringParam2">
+          <End Role="StringParam" Type="Self.StringParam" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StringParam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdTypeCoilCur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_StringParam3">
+          <End Role="StringParam" Type="Self.StringParam" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StringParam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdIcu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_CbCurrent">
+          <End Role="CbCurrent" Type="Self.CbCurrent" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CbCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdCbCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_DisCurrent">
+          <End Role="DisCurrent" Type="Self.DisCurrent" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdDisCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_DisModel">
+          <End Role="DisModel" Type="Self.DisModel" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisModel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdDisModel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_DisType">
+          <End Role="DisType" Type="Self.DisType" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdDisType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_IcuLiteral">
+          <End Role="IcuLiteral" Type="Self.IcuLiteral" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IcuLiteral">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdIcuLiteral" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_IcuValue">
+          <End Role="IcuValue" Type="Self.IcuValue" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IcuValue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdIcuValue" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_PoleNumber">
+          <End Role="PoleNumber" Type="Self.PoleNumber" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PoleNumber">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdPoleNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_Seria">
+          <End Role="Seria" Type="Self.Seria" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdSeria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_Voltage">
+          <End Role="Voltage" Type="Self.Voltage" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voltage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdVoltage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentTransform_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="CurrentTransform" Type="Self.CurrentTransform" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentTransform">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DesignNumber_CbCurrent">
+          <End Role="CbCurrent" Type="Self.CbCurrent" Multiplicity="0..1" />
+          <End Role="DesignNumber" Type="Self.DesignNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CbCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DesignNumber">
+              <PropertyRef Name="IdCbCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DesignNumber_DesignType">
+          <End Role="DesignType" Type="Self.DesignType" Multiplicity="0..1" />
+          <End Role="DesignNumber" Type="Self.DesignNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DesignType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DesignNumber">
+              <PropertyRef Name="IdDesignType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DesignNumber_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="DesignNumber" Type="Self.DesignNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DesignNumber">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DesignNumber_PoleNumber">
+          <End Role="PoleNumber" Type="Self.PoleNumber" Multiplicity="0..1" />
+          <End Role="DesignNumber" Type="Self.DesignNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PoleNumber">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DesignNumber">
+              <PropertyRef Name="IdPoleNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DesignNumber_Seria">
+          <End Role="Seria" Type="Self.Seria" Multiplicity="0..1" />
+          <End Role="DesignNumber" Type="Self.DesignNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DesignNumber">
+              <PropertyRef Name="IdSeria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisCurrentCb_CbCurrent">
+          <End Role="CbCurrent" Type="Self.CbCurrent" Multiplicity="0..1" />
+          <End Role="DisCurrentCb" Type="Self.DisCurrentCb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CbCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisCurrentCb">
+              <PropertyRef Name="IdCbCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisCurrentCb_DisCurrent">
+          <End Role="DisCurrent" Type="Self.DisCurrent" Multiplicity="0..1" />
+          <End Role="DisCurrentCb" Type="Self.DisCurrentCb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisCurrentCb">
+              <PropertyRef Name="IdDisCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisCurrentType_DisCurrent">
+          <End Role="DisCurrent" Type="Self.DisCurrent" Multiplicity="0..1" />
+          <End Role="DisCurrentType" Type="Self.DisCurrentType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisCurrentType">
+              <PropertyRef Name="IdDisCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisCurrentType_DisType">
+          <End Role="DisType" Type="Self.DisType" Multiplicity="0..1" />
+          <End Role="DisCurrentType" Type="Self.DisCurrentType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisCurrentType">
+              <PropertyRef Name="IdDisType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisTypeModel_DisModel">
+          <End Role="DisModel" Type="Self.DisModel" Multiplicity="0..1" />
+          <End Role="DisTypeModel" Type="Self.DisTypeModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisModel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisTypeModel">
+              <PropertyRef Name="IdDisModel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisTypeModel_DisType">
+          <End Role="DisType" Type="Self.DisType" Multiplicity="0..1" />
+          <End Role="DisTypeModel" Type="Self.DisTypeModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisTypeModel">
+              <PropertyRef Name="IdDisType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisTypeModel_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="DisTypeModel" Type="Self.DisTypeModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisTypeModel">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FunctionRole_Functions">
+          <End Role="Functions" Type="Self.Functions" Multiplicity="0..1" />
+          <End Role="FunctionRole" Type="Self.FunctionRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Functions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FunctionRole">
+              <PropertyRef Name="FunctionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FunctionRole_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="FunctionRole" Type="Self.FunctionRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FunctionRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ManufDisCurrent_DisCurrent">
+          <End Role="DisCurrent" Type="Self.DisCurrent" Multiplicity="0..1" />
+          <End Role="ManufDisCurrent" Type="Self.ManufDisCurrent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ManufDisCurrent">
+              <PropertyRef Name="IdDisCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ManufDisCurrent_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="ManufDisCurrent" Type="Self.ManufDisCurrent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ManufDisCurrent">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModulEquip_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="ModulEquip" Type="Self.ModulEquip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ModulEquip">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_ProjectIdentifier">
+          <End Role="ProjectNumber" Type="Self.ProjectNumber" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectNumber">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="IdNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_ProjectState">
+          <End Role="ProjectState" Type="Self.ProjectState" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectState">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="IdState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_StageProject">
+          <End Role="ProjectStage" Type="Self.ProjectStage" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectStage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="IdStage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="IdManager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_Users1">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="IdImplementer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_Users2">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="IdEditor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectBlock_BaseSize">
+          <End Role="BaseSize" Type="Self.BaseSize" Multiplicity="0..1" />
+          <End Role="ProjectBlock" Type="Self.ProjectBlock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BaseSize">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectBlock">
+              <PropertyRef Name="IdBaseH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectBlock_BaseSize1">
+          <End Role="BaseSize" Type="Self.BaseSize" Multiplicity="0..1" />
+          <End Role="ProjectBlock" Type="Self.ProjectBlock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BaseSize">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectBlock">
+              <PropertyRef Name="IdBaseB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectBlock_ProjectNumber">
+          <End Role="ProjectNumber" Type="Self.ProjectNumber" Multiplicity="0..1" />
+          <End Role="ProjectBlock" Type="Self.ProjectBlock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectNumber">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectBlock">
+              <PropertyRef Name="IdProjectNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectBlock_Schema">
+          <End Role="Schema" Type="Self.Schema" Multiplicity="0..1" />
+          <End Role="ProjectBlock" Type="Self.ProjectBlock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schema">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectBlock">
+              <PropertyRef Name="IdSchema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectBlock_VSize">
+          <End Role="VSize" Type="Self.VSize" Multiplicity="0..1" />
+          <End Role="ProjectBlock" Type="Self.ProjectBlock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VSize">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectBlock">
+              <PropertyRef Name="IdVSize" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectCbr_ProjectNumber">
+          <End Role="ProjectNumber" Type="Self.ProjectNumber" Multiplicity="0..1" />
+          <End Role="ProjectEquipment" Type="Self.ProjectEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectNumber">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEquipment">
+              <PropertyRef Name="IdProjectNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEquipment_Contactor">
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="0..1" />
+          <End Role="ProjectEquipment" Type="Self.ProjectEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contactor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEquipment">
+              <PropertyRef Name="IdCont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEquipment_CurrentBreaker">
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="0..1" />
+          <End Role="ProjectEquipment" Type="Self.ProjectEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CurrentBreaker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEquipment">
+              <PropertyRef Name="IdCbr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEquipment_CurrentTrans">
+          <End Role="CurrentTransform" Type="Self.CurrentTransform" Multiplicity="0..1" />
+          <End Role="ProjectEquipment" Type="Self.ProjectEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CurrentTransform">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEquipment">
+              <PropertyRef Name="IdCtr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEquipment_EquipNote">
+          <End Role="EquipNote" Type="Self.EquipNote" Multiplicity="0..1" />
+          <End Role="ProjectEquipment" Type="Self.ProjectEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipNote">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEquipment">
+              <PropertyRef Name="IdNote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEquipment_ModulEquip">
+          <End Role="ModulEquip" Type="Self.ModulEquip" Multiplicity="0..1" />
+          <End Role="ProjectEquipment" Type="Self.ProjectEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModulEquip">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEquipment">
+              <PropertyRef Name="IdModulEq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectFile_FileData">
+          <End Role="FileData" Type="Self.FileData" Multiplicity="0..1" />
+          <End Role="ProjectFile" Type="Self.ProjectFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectFile">
+              <PropertyRef Name="IdFile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectFile_ProjectIdentifier">
+          <End Role="ProjectNumber" Type="Self.ProjectNumber" Multiplicity="0..1" />
+          <End Role="ProjectFile" Type="Self.ProjectFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectNumber">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectFile">
+              <PropertyRef Name="IdProjectNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VSize_CbCurrent">
+          <End Role="CbCurrent" Type="Self.CbCurrent" Multiplicity="0..1" />
+          <End Role="VSize" Type="Self.VSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CbCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VSize">
+              <PropertyRef Name="IdCbrCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VSize_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="VSize" Type="Self.VSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VSize">
+              <PropertyRef Name="IdManuf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VSize_PoleNumber">
+          <End Role="PoleNumber" Type="Self.PoleNumber" Multiplicity="0..1" />
+          <End Role="VSize" Type="Self.VSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PoleNumber">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VSize">
+              <PropertyRef Name="IdPoleNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VSize_Schema">
+          <End Role="Schema" Type="Self.Schema" Multiplicity="0..1" />
+          <End Role="VSize" Type="Self.VSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schema">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VSize">
+              <PropertyRef Name="IdSchema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VSize_Seria">
+          <End Role="Seria" Type="Self.Seria" Multiplicity="0..1" />
+          <End Role="VSize" Type="Self.VSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VSize">
+              <PropertyRef Name="IdSeria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DataModelContainer">
+          <EntitySet Name="BaseSize" EntityType="Self.BaseSize" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlockEquipment" EntityType="Self.BlockEquipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CbCurrent" EntityType="Self.CbCurrent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CbCurrentIcu" EntityType="Self.CbCurrentIcu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contactor" EntityType="Self.Contactor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CurrentBreaker" EntityType="Self.CurrentBreaker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CurrentTransform" EntityType="Self.CurrentTransform" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DesignNumber" EntityType="Self.DesignNumber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DesignType" EntityType="Self.DesignType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DisCurrent" EntityType="Self.DisCurrent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DisCurrentCb" EntityType="Self.DisCurrentCb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DisCurrentType" EntityType="Self.DisCurrentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DisModel" EntityType="Self.DisModel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DisType" EntityType="Self.DisType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DisTypeModel" EntityType="Self.DisTypeModel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EquipNote" EntityType="Self.EquipNote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileData" EntityType="Self.FileData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FunctionRole" EntityType="Self.FunctionRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Functions" EntityType="Self.Functions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IcuLiteral" EntityType="Self.IcuLiteral" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IcuValue" EntityType="Self.IcuValue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ManufDisCurrent" EntityType="Self.ManufDisCurrent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModulEquip" EntityType="Self.ModulEquip" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NumericParam" EntityType="Self.NumericParam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PoleNumber" EntityType="Self.PoleNumber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectBlock" EntityType="Self.ProjectBlock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectEquipment" EntityType="Self.ProjectEquipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectFile" EntityType="Self.ProjectFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectNumber" EntityType="Self.ProjectNumber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectStage" EntityType="Self.ProjectStage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectState" EntityType="Self.ProjectState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schema" EntityType="Self.Schema" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seria" EntityType="Self.Seria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StringParam" EntityType="Self.StringParam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Voltage" EntityType="Self.Voltage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VSize" EntityType="Self.VSize" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BlockEquipment_ProjectBlock" Association="Self.FK_BlockEquipment_ProjectBlock">
+            <End Role="ProjectBlock" EntitySet="ProjectBlock" />
+            <End Role="BlockEquipment" EntitySet="BlockEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlockEquipment_ProjectEquipment" Association="Self.FK_BlockEquipment_ProjectEquipment">
+            <End Role="ProjectEquipment" EntitySet="ProjectEquipment" />
+            <End Role="BlockEquipment" EntitySet="BlockEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CbCurrentIcu_CbCurrent" Association="Self.FK_CbCurrentIcu_CbCurrent">
+            <End Role="CbCurrent" EntitySet="CbCurrent" />
+            <End Role="CbCurrentIcu" EntitySet="CbCurrentIcu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CbCurrentIcu_IcuValue" Association="Self.FK_CbCurrentIcu_IcuValue">
+            <End Role="IcuValue" EntitySet="IcuValue" />
+            <End Role="CbCurrentIcu" EntitySet="CbCurrentIcu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_Manufacturer" Association="Self.FK_Contactor_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="Contactor" EntitySet="Contactor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_NumericParam" Association="Self.FK_Contactor_NumericParam">
+            <End Role="NumericParam" EntitySet="NumericParam" />
+            <End Role="Contactor" EntitySet="Contactor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_NumericParam1" Association="Self.FK_Contactor_NumericParam1">
+            <End Role="NumericParam" EntitySet="NumericParam" />
+            <End Role="Contactor" EntitySet="Contactor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_NumericParam2" Association="Self.FK_Contactor_NumericParam2">
+            <End Role="NumericParam" EntitySet="NumericParam" />
+            <End Role="Contactor" EntitySet="Contactor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_Seria" Association="Self.FK_Contactor_Seria">
+            <End Role="Seria" EntitySet="Seria" />
+            <End Role="Contactor" EntitySet="Contactor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_StringParam" Association="Self.FK_Contactor_StringParam">
+            <End Role="StringParam" EntitySet="StringParam" />
+            <End Role="Contactor" EntitySet="Contactor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_StringParam1" Association="Self.FK_Contactor_StringParam1">
+            <End Role="StringParam" EntitySet="StringParam" />
+            <End Role="Contactor" EntitySet="Contactor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_StringParam2" Association="Self.FK_Contactor_StringParam2">
+            <End Role="StringParam" EntitySet="StringParam" />
+            <End Role="Contactor" EntitySet="Contactor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_StringParam3" Association="Self.FK_Contactor_StringParam3">
+            <End Role="StringParam" EntitySet="StringParam" />
+            <End Role="Contactor" EntitySet="Contactor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_CbCurrent" Association="Self.FK_CurrentBreaker_CbCurrent">
+            <End Role="CbCurrent" EntitySet="CbCurrent" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_DisCurrent" Association="Self.FK_CurrentBreaker_DisCurrent">
+            <End Role="DisCurrent" EntitySet="DisCurrent" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_DisModel" Association="Self.FK_CurrentBreaker_DisModel">
+            <End Role="DisModel" EntitySet="DisModel" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_DisType" Association="Self.FK_CurrentBreaker_DisType">
+            <End Role="DisType" EntitySet="DisType" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_IcuLiteral" Association="Self.FK_CurrentBreaker_IcuLiteral">
+            <End Role="IcuLiteral" EntitySet="IcuLiteral" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_IcuValue" Association="Self.FK_CurrentBreaker_IcuValue">
+            <End Role="IcuValue" EntitySet="IcuValue" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_Manufacturer" Association="Self.FK_CurrentBreaker_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_PoleNumber" Association="Self.FK_CurrentBreaker_PoleNumber">
+            <End Role="PoleNumber" EntitySet="PoleNumber" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_Seria" Association="Self.FK_CurrentBreaker_Seria">
+            <End Role="Seria" EntitySet="Seria" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_Voltage" Association="Self.FK_CurrentBreaker_Voltage">
+            <End Role="Voltage" EntitySet="Voltage" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentTransform_Manufacturer" Association="Self.FK_CurrentTransform_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="CurrentTransform" EntitySet="CurrentTransform" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DesignNumber_CbCurrent" Association="Self.FK_DesignNumber_CbCurrent">
+            <End Role="CbCurrent" EntitySet="CbCurrent" />
+            <End Role="DesignNumber" EntitySet="DesignNumber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DesignNumber_DesignType" Association="Self.FK_DesignNumber_DesignType">
+            <End Role="DesignType" EntitySet="DesignType" />
+            <End Role="DesignNumber" EntitySet="DesignNumber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DesignNumber_Manufacturer" Association="Self.FK_DesignNumber_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="DesignNumber" EntitySet="DesignNumber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DesignNumber_PoleNumber" Association="Self.FK_DesignNumber_PoleNumber">
+            <End Role="PoleNumber" EntitySet="PoleNumber" />
+            <End Role="DesignNumber" EntitySet="DesignNumber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DesignNumber_Seria" Association="Self.FK_DesignNumber_Seria">
+            <End Role="Seria" EntitySet="Seria" />
+            <End Role="DesignNumber" EntitySet="DesignNumber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisCurrentCb_CbCurrent" Association="Self.FK_DisCurrentCb_CbCurrent">
+            <End Role="CbCurrent" EntitySet="CbCurrent" />
+            <End Role="DisCurrentCb" EntitySet="DisCurrentCb" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisCurrentCb_DisCurrent" Association="Self.FK_DisCurrentCb_DisCurrent">
+            <End Role="DisCurrent" EntitySet="DisCurrent" />
+            <End Role="DisCurrentCb" EntitySet="DisCurrentCb" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisCurrentType_DisCurrent" Association="Self.FK_DisCurrentType_DisCurrent">
+            <End Role="DisCurrent" EntitySet="DisCurrent" />
+            <End Role="DisCurrentType" EntitySet="DisCurrentType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisCurrentType_DisType" Association="Self.FK_DisCurrentType_DisType">
+            <End Role="DisType" EntitySet="DisType" />
+            <End Role="DisCurrentType" EntitySet="DisCurrentType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisTypeModel_DisModel" Association="Self.FK_DisTypeModel_DisModel">
+            <End Role="DisModel" EntitySet="DisModel" />
+            <End Role="DisTypeModel" EntitySet="DisTypeModel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisTypeModel_DisType" Association="Self.FK_DisTypeModel_DisType">
+            <End Role="DisType" EntitySet="DisType" />
+            <End Role="DisTypeModel" EntitySet="DisTypeModel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisTypeModel_Manufacturer" Association="Self.FK_DisTypeModel_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="DisTypeModel" EntitySet="DisTypeModel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FunctionRole_Functions" Association="Self.FK_FunctionRole_Functions">
+            <End Role="Functions" EntitySet="Functions" />
+            <End Role="FunctionRole" EntitySet="FunctionRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FunctionRole_Roles" Association="Self.FK_FunctionRole_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="FunctionRole" EntitySet="FunctionRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ManufDisCurrent_DisCurrent" Association="Self.FK_ManufDisCurrent_DisCurrent">
+            <End Role="DisCurrent" EntitySet="DisCurrent" />
+            <End Role="ManufDisCurrent" EntitySet="ManufDisCurrent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ManufDisCurrent_Manufacturer" Association="Self.FK_ManufDisCurrent_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="ManufDisCurrent" EntitySet="ManufDisCurrent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModulEquip_Manufacturer" Association="Self.FK_ModulEquip_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="ModulEquip" EntitySet="ModulEquip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_ProjectIdentifier" Association="Self.FK_Project_ProjectIdentifier">
+            <End Role="ProjectNumber" EntitySet="ProjectNumber" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_ProjectState" Association="Self.FK_Project_ProjectState">
+            <End Role="ProjectState" EntitySet="ProjectState" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_StageProject" Association="Self.FK_Project_StageProject">
+            <End Role="ProjectStage" EntitySet="ProjectStage" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_Users" Association="Self.FK_Project_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_Users1" Association="Self.FK_Project_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_Users2" Association="Self.FK_Project_Users2">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectBlock_BaseSize" Association="Self.FK_ProjectBlock_BaseSize">
+            <End Role="BaseSize" EntitySet="BaseSize" />
+            <End Role="ProjectBlock" EntitySet="ProjectBlock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectBlock_BaseSize1" Association="Self.FK_ProjectBlock_BaseSize1">
+            <End Role="BaseSize" EntitySet="BaseSize" />
+            <End Role="ProjectBlock" EntitySet="ProjectBlock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectBlock_ProjectNumber" Association="Self.FK_ProjectBlock_ProjectNumber">
+            <End Role="ProjectNumber" EntitySet="ProjectNumber" />
+            <End Role="ProjectBlock" EntitySet="ProjectBlock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectBlock_Schema" Association="Self.FK_ProjectBlock_Schema">
+            <End Role="Schema" EntitySet="Schema" />
+            <End Role="ProjectBlock" EntitySet="ProjectBlock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectBlock_VSize" Association="Self.FK_ProjectBlock_VSize">
+            <End Role="VSize" EntitySet="VSize" />
+            <End Role="ProjectBlock" EntitySet="ProjectBlock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectCbr_ProjectNumber" Association="Self.FK_ProjectCbr_ProjectNumber">
+            <End Role="ProjectNumber" EntitySet="ProjectNumber" />
+            <End Role="ProjectEquipment" EntitySet="ProjectEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEquipment_Contactor" Association="Self.FK_ProjectEquipment_Contactor">
+            <End Role="Contactor" EntitySet="Contactor" />
+            <End Role="ProjectEquipment" EntitySet="ProjectEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEquipment_CurrentBreaker" Association="Self.FK_ProjectEquipment_CurrentBreaker">
+            <End Role="CurrentBreaker" EntitySet="CurrentBreaker" />
+            <End Role="ProjectEquipment" EntitySet="ProjectEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEquipment_CurrentTrans" Association="Self.FK_ProjectEquipment_CurrentTrans">
+            <End Role="CurrentTransform" EntitySet="CurrentTransform" />
+            <End Role="ProjectEquipment" EntitySet="ProjectEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEquipment_EquipNote" Association="Self.FK_ProjectEquipment_EquipNote">
+            <End Role="EquipNote" EntitySet="EquipNote" />
+            <End Role="ProjectEquipment" EntitySet="ProjectEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEquipment_ModulEquip" Association="Self.FK_ProjectEquipment_ModulEquip">
+            <End Role="ModulEquip" EntitySet="ModulEquip" />
+            <End Role="ProjectEquipment" EntitySet="ProjectEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectFile_FileData" Association="Self.FK_ProjectFile_FileData">
+            <End Role="FileData" EntitySet="FileData" />
+            <End Role="ProjectFile" EntitySet="ProjectFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectFile_ProjectIdentifier" Association="Self.FK_ProjectFile_ProjectIdentifier">
+            <End Role="ProjectNumber" EntitySet="ProjectNumber" />
+            <End Role="ProjectFile" EntitySet="ProjectFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VSize_CbCurrent" Association="Self.FK_VSize_CbCurrent">
+            <End Role="CbCurrent" EntitySet="CbCurrent" />
+            <End Role="VSize" EntitySet="VSize" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VSize_Manufacturer" Association="Self.FK_VSize_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="VSize" EntitySet="VSize" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VSize_PoleNumber" Association="Self.FK_VSize_PoleNumber">
+            <End Role="PoleNumber" EntitySet="PoleNumber" />
+            <End Role="VSize" EntitySet="VSize" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VSize_Schema" Association="Self.FK_VSize_Schema">
+            <End Role="Schema" EntitySet="Schema" />
+            <End Role="VSize" EntitySet="VSize" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VSize_Seria" Association="Self.FK_VSize_Seria">
+            <End Role="Seria" EntitySet="Seria" />
+            <End Role="VSize" EntitySet="VSize" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BaseSize">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Attribute" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProjectBlocks" Relationship="Self.FK_ProjectBlock_BaseSize" FromRole="BaseSize" ToRole="ProjectBlock" />
+          <NavigationProperty Name="ProjectBlocks1" Relationship="Self.FK_ProjectBlock_BaseSize1" FromRole="BaseSize" ToRole="ProjectBlock" />
+        </EntityType>
+        <EntityType Name="BlockEquipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdBlock" Type="Int32" />
+          <Property Name="IdEquip" Type="Int32" />
+          <Property Name="TypeEquip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProjectBlock" Relationship="Self.FK_BlockEquipment_ProjectBlock" FromRole="BlockEquipment" ToRole="ProjectBlock" />
+          <NavigationProperty Name="ProjectEquipment" Relationship="Self.FK_BlockEquipment_ProjectEquipment" FromRole="BlockEquipment" ToRole="ProjectEquipment" />
+        </EntityType>
+        <EntityType Name="CbCurrent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CbCurrentIcus" Relationship="Self.FK_CbCurrentIcu_CbCurrent" FromRole="CbCurrent" ToRole="CbCurrentIcu" />
+          <NavigationProperty Name="CurrentBreakers" Relationship="Self.FK_CurrentBreaker_CbCurrent" FromRole="CbCurrent" ToRole="CurrentBreaker" />
+          <NavigationProperty Name="DesignNumbers" Relationship="Self.FK_DesignNumber_CbCurrent" FromRole="CbCurrent" ToRole="DesignNumber" />
+          <NavigationProperty Name="DisCurrentCbs" Relationship="Self.FK_DisCurrentCb_CbCurrent" FromRole="CbCurrent" ToRole="DisCurrentCb" />
+          <NavigationProperty Name="VSizes" Relationship="Self.FK_VSize_CbCurrent" FromRole="CbCurrent" ToRole="VSize" />
+        </EntityType>
+        <EntityType Name="CbCurrentIcu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCbCurrent" Type="Int32" />
+          <Property Name="IdIcuValue" Type="Int32" />
+          <NavigationProperty Name="CbCurrent" Relationship="Self.FK_CbCurrentIcu_CbCurrent" FromRole="CbCurrentIcu" ToRole="CbCurrent" />
+          <NavigationProperty Name="IcuValue" Relationship="Self.FK_CbCurrentIcu_IcuValue" FromRole="CbCurrentIcu" ToRole="IcuValue" />
+        </EntityType>
+        <EntityType Name="Contactor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMotorPow" Type="Int32" />
+          <Property Name="IdMotorCur" Type="Int32" />
+          <Property Name="IdContCur" Type="Int32" />
+          <Property Name="IdHasRelay" Type="Int32" />
+          <Property Name="IdTypeCord" Type="Int32" />
+          <Property Name="IdTypeCoilCur" Type="Int32" />
+          <Property Name="IdManufacturer" Type="Int32" />
+          <Property Name="IdSeria" Type="Int32" />
+          <Property Name="ContCatNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RelayCabNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IdCurrentBreaker" Type="Int32" />
+          <Property Name="ReloadCurValue" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IdIcu" Type="Int32" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Contactor_Manufacturer" FromRole="Contactor" ToRole="Manufacturer" />
+          <NavigationProperty Name="NumericParam" Relationship="Self.FK_Contactor_NumericParam" FromRole="Contactor" ToRole="NumericParam" />
+          <NavigationProperty Name="NumericParam1" Relationship="Self.FK_Contactor_NumericParam1" FromRole="Contactor" ToRole="NumericParam" />
+          <NavigationProperty Name="NumericParam2" Relationship="Self.FK_Contactor_NumericParam2" FromRole="Contactor" ToRole="NumericParam" />
+          <NavigationProperty Name="Seria" Relationship="Self.FK_Contactor_Seria" FromRole="Contactor" ToRole="Seria" />
+          <NavigationProperty Name="StringParam" Relationship="Self.FK_Contactor_StringParam" FromRole="Contactor" ToRole="StringParam" />
+          <NavigationProperty Name="StringParam1" Relationship="Self.FK_Contactor_StringParam1" FromRole="Contactor" ToRole="StringParam" />
+          <NavigationProperty Name="StringParam2" Relationship="Self.FK_Contactor_StringParam2" FromRole="Contactor" ToRole="StringParam" />
+          <NavigationProperty Name="StringParam3" Relationship="Self.FK_Contactor_StringParam3" FromRole="Contactor" ToRole="StringParam" />
+          <NavigationProperty Name="ProjectEquipments" Relationship="Self.FK_ProjectEquipment_Contactor" FromRole="Contactor" ToRole="ProjectEquipment" />
+        </EntityType>
+        <EntityType Name="CurrentBreaker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdManufacturer" Type="Int32" />
+          <Property Name="IdSeria" Type="Int32" />
+          <Property Name="IdCbCurrent" Type="Int32" />
+          <Property Name="IdIcuLiteral" Type="Int32" />
+          <Property Name="IdIcuValue" Type="Int32" />
+          <Property Name="IdPoleNumber" Type="Int32" />
+          <Property Name="IdVoltage" Type="Int32" />
+          <Property Name="IdDisType" Type="Int32" />
+          <Property Name="IdDisModel" Type="Int32" />
+          <Property Name="IdDisCurrent" Type="Int32" />
+          <Property Name="CbCatNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DisCatNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CbCurrent" Relationship="Self.FK_CurrentBreaker_CbCurrent" FromRole="CurrentBreaker" ToRole="CbCurrent" />
+          <NavigationProperty Name="DisCurrent" Relationship="Self.FK_CurrentBreaker_DisCurrent" FromRole="CurrentBreaker" ToRole="DisCurrent" />
+          <NavigationProperty Name="DisModel" Relationship="Self.FK_CurrentBreaker_DisModel" FromRole="CurrentBreaker" ToRole="DisModel" />
+          <NavigationProperty Name="DisType" Relationship="Self.FK_CurrentBreaker_DisType" FromRole="CurrentBreaker" ToRole="DisType" />
+          <NavigationProperty Name="IcuLiteral" Relationship="Self.FK_CurrentBreaker_IcuLiteral" FromRole="CurrentBreaker" ToRole="IcuLiteral" />
+          <NavigationProperty Name="IcuValue" Relationship="Self.FK_CurrentBreaker_IcuValue" FromRole="CurrentBreaker" ToRole="IcuValue" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_CurrentBreaker_Manufacturer" FromRole="CurrentBreaker" ToRole="Manufacturer" />
+          <NavigationProperty Name="PoleNumber" Relationship="Self.FK_CurrentBreaker_PoleNumber" FromRole="CurrentBreaker" ToRole="PoleNumber" />
+          <NavigationProperty Name="Seria" Relationship="Self.FK_CurrentBreaker_Seria" FromRole="CurrentBreaker" ToRole="Seria" />
+          <NavigationProperty Name="Voltage" Relationship="Self.FK_CurrentBreaker_Voltage" FromRole="CurrentBreaker" ToRole="Voltage" />
+          <NavigationProperty Name="ProjectEquipments" Relationship="Self.FK_ProjectEquipment_CurrentBreaker" FromRole="CurrentBreaker" ToRole="ProjectEquipment" />
+        </EntityType>
+        <EntityType Name="CurrentTransform">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdManufacturer" Type="Int32" />
+          <Property Name="TypeSize" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TransFactor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MeasureClass" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Power" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_CurrentTransform_Manufacturer" FromRole="CurrentTransform" ToRole="Manufacturer" />
+          <NavigationProperty Name="ProjectEquipments" Relationship="Self.FK_ProjectEquipment_CurrentTrans" FromRole="CurrentTransform" ToRole="ProjectEquipment" />
+        </EntityType>
+        <EntityType Name="DesignNumber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdManufacturer" Type="Int32" />
+          <Property Name="IdSeria" Type="Int32" />
+          <Property Name="IdCbCurrent" Type="Int32" />
+          <Property Name="IdPoleNumber" Type="Int32" />
+          <Property Name="IdDesignType" Type="Int32" />
+          <Property Name="DesCatNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CbCurrent" Relationship="Self.FK_DesignNumber_CbCurrent" FromRole="DesignNumber" ToRole="CbCurrent" />
+          <NavigationProperty Name="DesignType" Relationship="Self.FK_DesignNumber_DesignType" FromRole="DesignNumber" ToRole="DesignType" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_DesignNumber_Manufacturer" FromRole="DesignNumber" ToRole="Manufacturer" />
+          <NavigationProperty Name="PoleNumber" Relationship="Self.FK_DesignNumber_PoleNumber" FromRole="DesignNumber" ToRole="PoleNumber" />
+          <NavigationProperty Name="Seria" Relationship="Self.FK_DesignNumber_Seria" FromRole="DesignNumber" ToRole="Seria" />
+        </EntityType>
+        <EntityType Name="DesignType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DesignNumbers" Relationship="Self.FK_DesignNumber_DesignType" FromRole="DesignType" ToRole="DesignNumber" />
+        </EntityType>
+        <EntityType Name="DisCurrent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="Double" Nullable="false" />
+          <NavigationProperty Name="CurrentBreakers" Relationship="Self.FK_CurrentBreaker_DisCurrent" FromRole="DisCurrent" ToRole="CurrentBreaker" />
+          <NavigationProperty Name="DisCurrentCbs" Relationship="Self.FK_DisCurrentCb_DisCurrent" FromRole="DisCurrent" ToRole="DisCurrentCb" />
+          <NavigationProperty Name="DisCurrentTypes" Relationship="Self.FK_DisCurrentType_DisCurrent" FromRole="DisCurrent" ToRole="DisCurrentType" />
+          <NavigationProperty Name="ManufDisCurrents" Relationship="Self.FK_ManufDisCurrent_DisCurrent" FromRole="DisCurrent" ToRole="ManufDisCurrent" />
+        </EntityType>
+        <EntityType Name="DisCurrentCb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdDisCurrent" Type="Int32" />
+          <Property Name="IdCbCurrent" Type="Int32" />
+          <NavigationProperty Name="CbCurrent" Relationship="Self.FK_DisCurrentCb_CbCurrent" FromRole="DisCurrentCb" ToRole="CbCurrent" />
+          <NavigationProperty Name="DisCurrent" Relationship="Self.FK_DisCurrentCb_DisCurrent" FromRole="DisCurrentCb" ToRole="DisCurrent" />
+        </EntityType>
+        <EntityType Name="DisCurrentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdDisCurrent" Type="Int32" />
+          <Property Name="IdDisType" Type="Int32" />
+          <NavigationProperty Name="DisCurrent" Relationship="Self.FK_DisCurrentType_DisCurrent" FromRole="DisCurrentType" ToRole="DisCurrent" />
+          <NavigationProperty Name="DisType" Relationship="Self.FK_DisCurrentType_DisType" FromRole="DisCurrentType" ToRole="DisType" />
+        </EntityType>
+        <EntityType Name="DisModel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CurrentBreakers" Relationship="Self.FK_CurrentBreaker_DisModel" FromRole="DisModel" ToRole="CurrentBreaker" />
+          <NavigationProperty Name="DisTypeModels" Relationship="Self.FK_DisTypeModel_DisModel" FromRole="DisModel" ToRole="DisTypeModel" />
+        </EntityType>
+        <EntityType Name="DisType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CurrentBreakers" Relationship="Self.FK_CurrentBreaker_DisType" FromRole="DisType" ToRole="CurrentBreaker" />
+          <NavigationProperty Name="DisCurrentTypes" Relationship="Self.FK_DisCurrentType_DisType" FromRole="DisType" ToRole="DisCurrentType" />
+          <NavigationProperty Name="DisTypeModels" Relationship="Self.FK_DisTypeModel_DisType" FromRole="DisType" ToRole="DisTypeModel" />
+        </EntityType>
+        <EntityType Name="DisTypeModel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdDisModel" Type="Int32" />
+          <Property Name="IdDisType" Type="Int32" />
+          <Property Name="IdManufacturer" Type="Int32" />
+          <NavigationProperty Name="DisModel" Relationship="Self.FK_DisTypeModel_DisModel" FromRole="DisTypeModel" ToRole="DisModel" />
+          <NavigationProperty Name="DisType" Relationship="Self.FK_DisTypeModel_DisType" FromRole="DisTypeModel" ToRole="DisType" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_DisTypeModel_Manufacturer" FromRole="DisTypeModel" ToRole="Manufacturer" />
+        </EntityType>
+        <EntityType Name="EquipNote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProjectNumber" Type="Int32" />
+          <Property Name="Text" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProjectEquipments" Relationship="Self.FK_ProjectEquipment_EquipNote" FromRole="EquipNote" ToRole="ProjectEquipment" />
+        </EntityType>
+        <EntityType Name="FileData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GUID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Extension" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="Int64" />
+          <Property Name="Author" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Data" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="ProjectFiles" Relationship="Self.FK_ProjectFile_FileData" FromRole="FileData" ToRole="ProjectFile" />
+        </EntityType>
+        <EntityType Name="FunctionRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FunctionId" Type="Int32" />
+          <Property Name="RoleId" Type="Int32" />
+          <NavigationProperty Name="Function" Relationship="Self.FK_FunctionRole_Functions" FromRole="FunctionRole" ToRole="Functions" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_FunctionRole_Roles" FromRole="FunctionRole" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Function">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FunctionName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FormName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FunctionRoles" Relationship="Self.FK_FunctionRole_Functions" FromRole="Functions" ToRole="FunctionRole" />
+        </EntityType>
+        <EntityType Name="IcuLiteral">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Literal" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CurrentBreakers" Relationship="Self.FK_CurrentBreaker_IcuLiteral" FromRole="IcuLiteral" ToRole="CurrentBreaker" />
+        </EntityType>
+        <EntityType Name="IcuValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CbCurrentIcus" Relationship="Self.FK_CbCurrentIcu_IcuValue" FromRole="IcuValue" ToRole="CbCurrentIcu" />
+          <NavigationProperty Name="CurrentBreakers" Relationship="Self.FK_CurrentBreaker_IcuValue" FromRole="IcuValue" ToRole="CurrentBreaker" />
+        </EntityType>
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Literal" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Contactors" Relationship="Self.FK_Contactor_Manufacturer" FromRole="Manufacturer" ToRole="Contactor" />
+          <NavigationProperty Name="CurrentBreakers" Relationship="Self.FK_CurrentBreaker_Manufacturer" FromRole="Manufacturer" ToRole="CurrentBreaker" />
+          <NavigationProperty Name="CurrentTransforms" Relationship="Self.FK_CurrentTransform_Manufacturer" FromRole="Manufacturer" ToRole="CurrentTransform" />
+          <NavigationProperty Name="DesignNumbers" Relationship="Self.FK_DesignNumber_Manufacturer" FromRole="Manufacturer" ToRole="DesignNumber" />
+          <NavigationProperty Name="DisTypeModels" Relationship="Self.FK_DisTypeModel_Manufacturer" FromRole="Manufacturer" ToRole="DisTypeModel" />
+          <NavigationProperty Name="ManufDisCurrents" Relationship="Self.FK_ManufDisCurrent_Manufacturer" FromRole="Manufacturer" ToRole="ManufDisCurrent" />
+          <NavigationProperty Name="ModulEquips" Relationship="Self.FK_ModulEquip_Manufacturer" FromRole="Manufacturer" ToRole="ModulEquip" />
+          <NavigationProperty Name="VSizes" Relationship="Self.FK_VSize_Manufacturer" FromRole="Manufacturer" ToRole="VSize" />
+        </EntityType>
+        <EntityType Name="ManufDisCurrent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdManufacturer" Type="Int32" />
+          <Property Name="IdDisCurrent" Type="Int32" />
+          <NavigationProperty Name="DisCurrent" Relationship="Self.FK_ManufDisCurrent_DisCurrent" FromRole="ManufDisCurrent" ToRole="DisCurrent" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_ManufDisCurrent_Manufacturer" FromRole="ManufDisCurrent" ToRole="Manufacturer" />
+        </EntityType>
+        <EntityType Name="ModulEquip">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdManufacturer" Type="Int32" />
+          <Property Name="Feature2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Feature3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Feature4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_ModulEquip_Manufacturer" FromRole="ModulEquip" ToRole="Manufacturer" />
+          <NavigationProperty Name="ProjectEquipments" Relationship="Self.FK_ProjectEquipment_ModulEquip" FromRole="ModulEquip" ToRole="ProjectEquipment" />
+        </EntityType>
+        <EntityType Name="NumericParam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="Double" />
+          <NavigationProperty Name="Contactors" Relationship="Self.FK_Contactor_NumericParam" FromRole="NumericParam" ToRole="Contactor" />
+          <NavigationProperty Name="Contactors1" Relationship="Self.FK_Contactor_NumericParam1" FromRole="NumericParam" ToRole="Contactor" />
+          <NavigationProperty Name="Contactors2" Relationship="Self.FK_Contactor_NumericParam2" FromRole="NumericParam" ToRole="Contactor" />
+        </EntityType>
+        <EntityType Name="PoleNumber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CurrentBreakers" Relationship="Self.FK_CurrentBreaker_PoleNumber" FromRole="PoleNumber" ToRole="CurrentBreaker" />
+          <NavigationProperty Name="DesignNumbers" Relationship="Self.FK_DesignNumber_PoleNumber" FromRole="PoleNumber" ToRole="DesignNumber" />
+          <NavigationProperty Name="VSizes" Relationship="Self.FK_VSize_PoleNumber" FromRole="PoleNumber" ToRole="VSize" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdNumber" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdManager" Type="Int32" />
+          <Property Name="IdImplementer" Type="Int32" />
+          <Property Name="IdEditor" Type="Int32" />
+          <Property Name="Version" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="IdState" Type="Int32" />
+          <Property Name="IdStage" Type="Int32" />
+          <NavigationProperty Name="ProjectNumber" Relationship="Self.FK_Project_ProjectIdentifier" FromRole="Project" ToRole="ProjectNumber" />
+          <NavigationProperty Name="ProjectState" Relationship="Self.FK_Project_ProjectState" FromRole="Project" ToRole="ProjectState" />
+          <NavigationProperty Name="ProjectStage" Relationship="Self.FK_Project_StageProject" FromRole="Project" ToRole="ProjectStage" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Project_Users" FromRole="Project" ToRole="Users" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_Project_Users1" FromRole="Project" ToRole="Users" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_Project_Users2" FromRole="Project" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="ProjectBlock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Functional" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IdBaseH" Type="Int32" />
+          <Property Name="IdBaseB" Type="Int32" />
+          <Property Name="IdVSize" Type="Int32" />
+          <Property Name="IdSchema" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdProjectNumber" Type="Int32" />
+          <NavigationProperty Name="BaseSize" Relationship="Self.FK_ProjectBlock_BaseSize" FromRole="ProjectBlock" ToRole="BaseSize" />
+          <NavigationProperty Name="BaseSize1" Relationship="Self.FK_ProjectBlock_BaseSize1" FromRole="ProjectBlock" ToRole="BaseSize" />
+          <NavigationProperty Name="BlockEquipments" Relationship="Self.FK_BlockEquipment_ProjectBlock" FromRole="ProjectBlock" ToRole="BlockEquipment" />
+          <NavigationProperty Name="ProjectNumber" Relationship="Self.FK_ProjectBlock_ProjectNumber" FromRole="ProjectBlock" ToRole="ProjectNumber" />
+          <NavigationProperty Name="Schema" Relationship="Self.FK_ProjectBlock_Schema" FromRole="ProjectBlock" ToRole="Schema" />
+          <NavigationProperty Name="VSize" Relationship="Self.FK_ProjectBlock_VSize" FromRole="ProjectBlock" ToRole="VSize" />
+        </EntityType>
+        <EntityType Name="ProjectEquipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProjectNumber" Type="Int32" />
+          <Property Name="IdCbr" Type="Int32" />
+          <Property Name="IdCont" Type="Int32" />
+          <Property Name="IdModulEq" Type="Int32" />
+          <Property Name="IdCtr" Type="Int32" />
+          <Property Name="Analog" Type="Boolean" />
+          <Property Name="IdNote" Type="Int32" />
+          <NavigationProperty Name="BlockEquipments" Relationship="Self.FK_BlockEquipment_ProjectEquipment" FromRole="ProjectEquipment" ToRole="BlockEquipment" />
+          <NavigationProperty Name="Contactor" Relationship="Self.FK_ProjectEquipment_Contactor" FromRole="ProjectEquipment" ToRole="Contactor" />
+          <NavigationProperty Name="CurrentBreaker" Relationship="Self.FK_ProjectEquipment_CurrentBreaker" FromRole="ProjectEquipment" ToRole="CurrentBreaker" />
+          <NavigationProperty Name="CurrentTransform" Relationship="Self.FK_ProjectEquipment_CurrentTrans" FromRole="ProjectEquipment" ToRole="CurrentTransform" />
+          <NavigationProperty Name="EquipNote" Relationship="Self.FK_ProjectEquipment_EquipNote" FromRole="ProjectEquipment" ToRole="EquipNote" />
+          <NavigationProperty Name="ModulEquip" Relationship="Self.FK_ProjectEquipment_ModulEquip" FromRole="ProjectEquipment" ToRole="ModulEquip" />
+          <NavigationProperty Name="ProjectNumber" Relationship="Self.FK_ProjectCbr_ProjectNumber" FromRole="ProjectEquipment" ToRole="ProjectNumber" />
+        </EntityType>
+        <EntityType Name="ProjectFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProjectNumber" Type="Int32" />
+          <Property Name="IdFile" Type="Int32" />
+          <NavigationProperty Name="FileData" Relationship="Self.FK_ProjectFile_FileData" FromRole="ProjectFile" ToRole="FileData" />
+          <NavigationProperty Name="ProjectNumber" Relationship="Self.FK_ProjectFile_ProjectIdentifier" FromRole="ProjectFile" ToRole="ProjectNumber" />
+        </EntityType>
+        <EntityType Name="ProjectNumber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Project_ProjectIdentifier" FromRole="ProjectNumber" ToRole="Project" />
+          <NavigationProperty Name="ProjectBlocks" Relationship="Self.FK_ProjectBlock_ProjectNumber" FromRole="ProjectNumber" ToRole="ProjectBlock" />
+          <NavigationProperty Name="ProjectEquipments" Relationship="Self.FK_ProjectCbr_ProjectNumber" FromRole="ProjectNumber" ToRole="ProjectEquipment" />
+          <NavigationProperty Name="ProjectFiles" Relationship="Self.FK_ProjectFile_ProjectIdentifier" FromRole="ProjectNumber" ToRole="ProjectFile" />
+        </EntityType>
+        <EntityType Name="ProjectStage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Stage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Project_StageProject" FromRole="ProjectStage" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="ProjectState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Project_ProjectState" FromRole="ProjectState" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FunctionRoles" Relationship="Self.FK_FunctionRole_Roles" FromRole="Roles" ToRole="FunctionRole" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Schema">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Indexx" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProjectBlocks" Relationship="Self.FK_ProjectBlock_Schema" FromRole="Schema" ToRole="ProjectBlock" />
+          <NavigationProperty Name="VSizes" Relationship="Self.FK_VSize_Schema" FromRole="Schema" ToRole="VSize" />
+        </EntityType>
+        <EntityType Name="Seria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Contactors" Relationship="Self.FK_Contactor_Seria" FromRole="Seria" ToRole="Contactor" />
+          <NavigationProperty Name="CurrentBreakers" Relationship="Self.FK_CurrentBreaker_Seria" FromRole="Seria" ToRole="CurrentBreaker" />
+          <NavigationProperty Name="DesignNumbers" Relationship="Self.FK_DesignNumber_Seria" FromRole="Seria" ToRole="DesignNumber" />
+          <NavigationProperty Name="VSizes" Relationship="Self.FK_VSize_Seria" FromRole="Seria" ToRole="VSize" />
+        </EntityType>
+        <EntityType Name="StringParam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contactors" Relationship="Self.FK_Contactor_StringParam" FromRole="StringParam" ToRole="Contactor" />
+          <NavigationProperty Name="Contactors1" Relationship="Self.FK_Contactor_StringParam1" FromRole="StringParam" ToRole="Contactor" />
+          <NavigationProperty Name="Contactors2" Relationship="Self.FK_Contactor_StringParam2" FromRole="StringParam" ToRole="Contactor" />
+          <NavigationProperty Name="Contactors3" Relationship="Self.FK_Contactor_StringParam3" FromRole="StringParam" ToRole="Contactor" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="Login" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Project_Users" FromRole="Users" ToRole="Project" />
+          <NavigationProperty Name="Projects1" Relationship="Self.FK_Project_Users1" FromRole="Users" ToRole="Project" />
+          <NavigationProperty Name="Projects2" Relationship="Self.FK_Project_Users2" FromRole="Users" ToRole="Project" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Voltage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CurrentBreakers" Relationship="Self.FK_CurrentBreaker_Voltage" FromRole="Voltage" ToRole="CurrentBreaker" />
+        </EntityType>
+        <EntityType Name="VSize">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdManuf" Type="Int32" />
+          <Property Name="IdPoleNumber" Type="Int32" />
+          <Property Name="IdSeria" Type="Int32" />
+          <Property Name="IdCbrCurrent" Type="Int32" />
+          <Property Name="IdSchema" Type="Int32" />
+          <Property Name="SizeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Fraction" Type="Int32" />
+          <NavigationProperty Name="CbCurrent" Relationship="Self.FK_VSize_CbCurrent" FromRole="VSize" ToRole="CbCurrent" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_VSize_Manufacturer" FromRole="VSize" ToRole="Manufacturer" />
+          <NavigationProperty Name="PoleNumber" Relationship="Self.FK_VSize_PoleNumber" FromRole="VSize" ToRole="PoleNumber" />
+          <NavigationProperty Name="ProjectBlocks" Relationship="Self.FK_ProjectBlock_VSize" FromRole="VSize" ToRole="ProjectBlock" />
+          <NavigationProperty Name="Schema" Relationship="Self.FK_VSize_Schema" FromRole="VSize" ToRole="Schema" />
+          <NavigationProperty Name="Seria" Relationship="Self.FK_VSize_Seria" FromRole="VSize" ToRole="Seria" />
+        </EntityType>
+        <Association Name="FK_ProjectBlock_BaseSize">
+          <End Role="BaseSize" Type="Self.BaseSize" Multiplicity="0..1" />
+          <End Role="ProjectBlock" Type="Self.ProjectBlock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BaseSize">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectBlock">
+              <PropertyRef Name="IdBaseH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectBlock_BaseSize1">
+          <End Role="BaseSize" Type="Self.BaseSize" Multiplicity="0..1" />
+          <End Role="ProjectBlock" Type="Self.ProjectBlock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BaseSize">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectBlock">
+              <PropertyRef Name="IdBaseB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlockEquipment_ProjectBlock">
+          <End Role="ProjectBlock" Type="Self.ProjectBlock" Multiplicity="0..1" />
+          <End Role="BlockEquipment" Type="Self.BlockEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectBlock">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlockEquipment">
+              <PropertyRef Name="IdBlock" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlockEquipment_ProjectEquipment">
+          <End Role="ProjectEquipment" Type="Self.ProjectEquipment" Multiplicity="0..1" />
+          <End Role="BlockEquipment" Type="Self.BlockEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectEquipment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlockEquipment">
+              <PropertyRef Name="IdEquip" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CbCurrentIcu_CbCurrent">
+          <End Role="CbCurrent" Type="Self.CbCurrent" Multiplicity="0..1" />
+          <End Role="CbCurrentIcu" Type="Self.CbCurrentIcu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CbCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CbCurrentIcu">
+              <PropertyRef Name="IdCbCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_CbCurrent">
+          <End Role="CbCurrent" Type="Self.CbCurrent" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CbCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdCbCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DesignNumber_CbCurrent">
+          <End Role="CbCurrent" Type="Self.CbCurrent" Multiplicity="0..1" />
+          <End Role="DesignNumber" Type="Self.DesignNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CbCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DesignNumber">
+              <PropertyRef Name="IdCbCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisCurrentCb_CbCurrent">
+          <End Role="CbCurrent" Type="Self.CbCurrent" Multiplicity="0..1" />
+          <End Role="DisCurrentCb" Type="Self.DisCurrentCb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CbCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisCurrentCb">
+              <PropertyRef Name="IdCbCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VSize_CbCurrent">
+          <End Role="CbCurrent" Type="Self.CbCurrent" Multiplicity="0..1" />
+          <End Role="VSize" Type="Self.VSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CbCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VSize">
+              <PropertyRef Name="IdCbrCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CbCurrentIcu_IcuValue">
+          <End Role="IcuValue" Type="Self.IcuValue" Multiplicity="0..1" />
+          <End Role="CbCurrentIcu" Type="Self.CbCurrentIcu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IcuValue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CbCurrentIcu">
+              <PropertyRef Name="IdIcuValue" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_NumericParam">
+          <End Role="NumericParam" Type="Self.NumericParam" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumericParam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdMotorPow" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_NumericParam1">
+          <End Role="NumericParam" Type="Self.NumericParam" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumericParam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdMotorCur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_NumericParam2">
+          <End Role="NumericParam" Type="Self.NumericParam" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumericParam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdContCur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_Seria">
+          <End Role="Seria" Type="Self.Seria" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdSeria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_StringParam">
+          <End Role="StringParam" Type="Self.StringParam" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StringParam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdHasRelay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_StringParam1">
+          <End Role="StringParam" Type="Self.StringParam" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StringParam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdTypeCord" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_StringParam2">
+          <End Role="StringParam" Type="Self.StringParam" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StringParam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdTypeCoilCur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactor_StringParam3">
+          <End Role="StringParam" Type="Self.StringParam" Multiplicity="0..1" />
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StringParam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contactor">
+              <PropertyRef Name="IdIcu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEquipment_Contactor">
+          <End Role="Contactor" Type="Self.Contactor" Multiplicity="0..1" />
+          <End Role="ProjectEquipment" Type="Self.ProjectEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contactor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEquipment">
+              <PropertyRef Name="IdCont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_DisCurrent">
+          <End Role="DisCurrent" Type="Self.DisCurrent" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdDisCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_DisModel">
+          <End Role="DisModel" Type="Self.DisModel" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisModel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdDisModel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_DisType">
+          <End Role="DisType" Type="Self.DisType" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdDisType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_IcuLiteral">
+          <End Role="IcuLiteral" Type="Self.IcuLiteral" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IcuLiteral">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdIcuLiteral" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_IcuValue">
+          <End Role="IcuValue" Type="Self.IcuValue" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IcuValue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdIcuValue" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_PoleNumber">
+          <End Role="PoleNumber" Type="Self.PoleNumber" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PoleNumber">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdPoleNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_Seria">
+          <End Role="Seria" Type="Self.Seria" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdSeria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentBreaker_Voltage">
+          <End Role="Voltage" Type="Self.Voltage" Multiplicity="0..1" />
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voltage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentBreaker">
+              <PropertyRef Name="IdVoltage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEquipment_CurrentBreaker">
+          <End Role="CurrentBreaker" Type="Self.CurrentBreaker" Multiplicity="0..1" />
+          <End Role="ProjectEquipment" Type="Self.ProjectEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CurrentBreaker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEquipment">
+              <PropertyRef Name="IdCbr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentTransform_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="CurrentTransform" Type="Self.CurrentTransform" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurrentTransform">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEquipment_CurrentTrans">
+          <End Role="CurrentTransform" Type="Self.CurrentTransform" Multiplicity="0..1" />
+          <End Role="ProjectEquipment" Type="Self.ProjectEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CurrentTransform">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEquipment">
+              <PropertyRef Name="IdCtr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DesignNumber_DesignType">
+          <End Role="DesignType" Type="Self.DesignType" Multiplicity="0..1" />
+          <End Role="DesignNumber" Type="Self.DesignNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DesignType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DesignNumber">
+              <PropertyRef Name="IdDesignType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DesignNumber_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="DesignNumber" Type="Self.DesignNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DesignNumber">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DesignNumber_PoleNumber">
+          <End Role="PoleNumber" Type="Self.PoleNumber" Multiplicity="0..1" />
+          <End Role="DesignNumber" Type="Self.DesignNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PoleNumber">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DesignNumber">
+              <PropertyRef Name="IdPoleNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DesignNumber_Seria">
+          <End Role="Seria" Type="Self.Seria" Multiplicity="0..1" />
+          <End Role="DesignNumber" Type="Self.DesignNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DesignNumber">
+              <PropertyRef Name="IdSeria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisCurrentCb_DisCurrent">
+          <End Role="DisCurrent" Type="Self.DisCurrent" Multiplicity="0..1" />
+          <End Role="DisCurrentCb" Type="Self.DisCurrentCb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisCurrentCb">
+              <PropertyRef Name="IdDisCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisCurrentType_DisCurrent">
+          <End Role="DisCurrent" Type="Self.DisCurrent" Multiplicity="0..1" />
+          <End Role="DisCurrentType" Type="Self.DisCurrentType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisCurrentType">
+              <PropertyRef Name="IdDisCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ManufDisCurrent_DisCurrent">
+          <End Role="DisCurrent" Type="Self.DisCurrent" Multiplicity="0..1" />
+          <End Role="ManufDisCurrent" Type="Self.ManufDisCurrent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisCurrent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ManufDisCurrent">
+              <PropertyRef Name="IdDisCurrent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisCurrentType_DisType">
+          <End Role="DisType" Type="Self.DisType" Multiplicity="0..1" />
+          <End Role="DisCurrentType" Type="Self.DisCurrentType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisCurrentType">
+              <PropertyRef Name="IdDisType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisTypeModel_DisModel">
+          <End Role="DisModel" Type="Self.DisModel" Multiplicity="0..1" />
+          <End Role="DisTypeModel" Type="Self.DisTypeModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisModel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisTypeModel">
+              <PropertyRef Name="IdDisModel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisTypeModel_DisType">
+          <End Role="DisType" Type="Self.DisType" Multiplicity="0..1" />
+          <End Role="DisTypeModel" Type="Self.DisTypeModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DisType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisTypeModel">
+              <PropertyRef Name="IdDisType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DisTypeModel_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="DisTypeModel" Type="Self.DisTypeModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisTypeModel">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEquipment_EquipNote">
+          <End Role="EquipNote" Type="Self.EquipNote" Multiplicity="0..1" />
+          <End Role="ProjectEquipment" Type="Self.ProjectEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipNote">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEquipment">
+              <PropertyRef Name="IdNote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectFile_FileData">
+          <End Role="FileData" Type="Self.FileData" Multiplicity="0..1" />
+          <End Role="ProjectFile" Type="Self.ProjectFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectFile">
+              <PropertyRef Name="IdFile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FunctionRole_Functions">
+          <End Role="Functions" Type="Self.Function" Multiplicity="0..1" />
+          <End Role="FunctionRole" Type="Self.FunctionRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Functions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FunctionRole">
+              <PropertyRef Name="FunctionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FunctionRole_Roles">
+          <End Role="Roles" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="FunctionRole" Type="Self.FunctionRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FunctionRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ManufDisCurrent_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="ManufDisCurrent" Type="Self.ManufDisCurrent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ManufDisCurrent">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModulEquip_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="ModulEquip" Type="Self.ModulEquip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ModulEquip">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VSize_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="VSize" Type="Self.VSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VSize">
+              <PropertyRef Name="IdManuf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEquipment_ModulEquip">
+          <End Role="ModulEquip" Type="Self.ModulEquip" Multiplicity="0..1" />
+          <End Role="ProjectEquipment" Type="Self.ProjectEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModulEquip">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEquipment">
+              <PropertyRef Name="IdModulEq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VSize_PoleNumber">
+          <End Role="PoleNumber" Type="Self.PoleNumber" Multiplicity="0..1" />
+          <End Role="VSize" Type="Self.VSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PoleNumber">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VSize">
+              <PropertyRef Name="IdPoleNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_ProjectIdentifier">
+          <End Role="ProjectNumber" Type="Self.ProjectNumber" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectNumber">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="IdNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_ProjectState">
+          <End Role="ProjectState" Type="Self.ProjectState" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectState">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="IdState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_StageProject">
+          <End Role="ProjectStage" Type="Self.ProjectStage" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectStage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="IdStage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="IdManager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_Users1">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="IdImplementer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_Users2">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="IdEditor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectBlock_ProjectNumber">
+          <End Role="ProjectNumber" Type="Self.ProjectNumber" Multiplicity="0..1" />
+          <End Role="ProjectBlock" Type="Self.ProjectBlock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectNumber">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectBlock">
+              <PropertyRef Name="IdProjectNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectBlock_Schema">
+          <End Role="Schema" Type="Self.Schema" Multiplicity="0..1" />
+          <End Role="ProjectBlock" Type="Self.ProjectBlock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schema">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectBlock">
+              <PropertyRef Name="IdSchema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectBlock_VSize">
+          <End Role="VSize" Type="Self.VSize" Multiplicity="0..1" />
+          <End Role="ProjectBlock" Type="Self.ProjectBlock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VSize">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectBlock">
+              <PropertyRef Name="IdVSize" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectCbr_ProjectNumber">
+          <End Role="ProjectNumber" Type="Self.ProjectNumber" Multiplicity="0..1" />
+          <End Role="ProjectEquipment" Type="Self.ProjectEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectNumber">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEquipment">
+              <PropertyRef Name="IdProjectNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectFile_ProjectIdentifier">
+          <End Role="ProjectNumber" Type="Self.ProjectNumber" Multiplicity="0..1" />
+          <End Role="ProjectFile" Type="Self.ProjectFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectNumber">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectFile">
+              <PropertyRef Name="IdProjectNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles">
+          <End Role="Roles" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VSize_Schema">
+          <End Role="Schema" Type="Self.Schema" Multiplicity="0..1" />
+          <End Role="VSize" Type="Self.VSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schema">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VSize">
+              <PropertyRef Name="IdSchema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VSize_Seria">
+          <End Role="Seria" Type="Self.Seria" Multiplicity="0..1" />
+          <End Role="VSize" Type="Self.VSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VSize">
+              <PropertyRef Name="IdSeria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BaseSizes" EntityType="Self.BaseSize" />
+          <EntitySet Name="BlockEquipments" EntityType="Self.BlockEquipment" />
+          <EntitySet Name="CbCurrents" EntityType="Self.CbCurrent" />
+          <EntitySet Name="CbCurrentIcus" EntityType="Self.CbCurrentIcu" />
+          <EntitySet Name="Contactors" EntityType="Self.Contactor" />
+          <EntitySet Name="CurrentBreakers" EntityType="Self.CurrentBreaker" />
+          <EntitySet Name="CurrentTransforms" EntityType="Self.CurrentTransform" />
+          <EntitySet Name="DesignNumbers" EntityType="Self.DesignNumber" />
+          <EntitySet Name="DesignTypes" EntityType="Self.DesignType" />
+          <EntitySet Name="DisCurrents" EntityType="Self.DisCurrent" />
+          <EntitySet Name="DisCurrentCbs" EntityType="Self.DisCurrentCb" />
+          <EntitySet Name="DisCurrentTypes" EntityType="Self.DisCurrentType" />
+          <EntitySet Name="DisModels" EntityType="Self.DisModel" />
+          <EntitySet Name="DisTypes" EntityType="Self.DisType" />
+          <EntitySet Name="DisTypeModels" EntityType="Self.DisTypeModel" />
+          <EntitySet Name="EquipNotes" EntityType="Self.EquipNote" />
+          <EntitySet Name="FileDatas" EntityType="Self.FileData" />
+          <EntitySet Name="FunctionRoles" EntityType="Self.FunctionRole" />
+          <EntitySet Name="Functions" EntityType="Self.Function" />
+          <EntitySet Name="IcuLiterals" EntityType="Self.IcuLiteral" />
+          <EntitySet Name="IcuValues" EntityType="Self.IcuValue" />
+          <EntitySet Name="Manufacturers" EntityType="Self.Manufacturer" />
+          <EntitySet Name="ManufDisCurrents" EntityType="Self.ManufDisCurrent" />
+          <EntitySet Name="ModulEquips" EntityType="Self.ModulEquip" />
+          <EntitySet Name="NumericParams" EntityType="Self.NumericParam" />
+          <EntitySet Name="PoleNumbers" EntityType="Self.PoleNumber" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="ProjectBlocks" EntityType="Self.ProjectBlock" />
+          <EntitySet Name="ProjectEquipments" EntityType="Self.ProjectEquipment" />
+          <EntitySet Name="ProjectFiles" EntityType="Self.ProjectFile" />
+          <EntitySet Name="ProjectNumbers" EntityType="Self.ProjectNumber" />
+          <EntitySet Name="ProjectStages" EntityType="Self.ProjectStage" />
+          <EntitySet Name="ProjectStates" EntityType="Self.ProjectState" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Schemata" EntityType="Self.Schema" />
+          <EntitySet Name="Serias" EntityType="Self.Seria" />
+          <EntitySet Name="StringParams" EntityType="Self.StringParam" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Voltages" EntityType="Self.Voltage" />
+          <EntitySet Name="VSizes" EntityType="Self.VSize" />
+          <AssociationSet Name="FK_ProjectBlock_BaseSize" Association="Self.FK_ProjectBlock_BaseSize">
+            <End Role="BaseSize" EntitySet="BaseSizes" />
+            <End Role="ProjectBlock" EntitySet="ProjectBlocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectBlock_BaseSize1" Association="Self.FK_ProjectBlock_BaseSize1">
+            <End Role="BaseSize" EntitySet="BaseSizes" />
+            <End Role="ProjectBlock" EntitySet="ProjectBlocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlockEquipment_ProjectBlock" Association="Self.FK_BlockEquipment_ProjectBlock">
+            <End Role="ProjectBlock" EntitySet="ProjectBlocks" />
+            <End Role="BlockEquipment" EntitySet="BlockEquipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlockEquipment_ProjectEquipment" Association="Self.FK_BlockEquipment_ProjectEquipment">
+            <End Role="ProjectEquipment" EntitySet="ProjectEquipments" />
+            <End Role="BlockEquipment" EntitySet="BlockEquipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CbCurrentIcu_CbCurrent" Association="Self.FK_CbCurrentIcu_CbCurrent">
+            <End Role="CbCurrent" EntitySet="CbCurrents" />
+            <End Role="CbCurrentIcu" EntitySet="CbCurrentIcus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_CbCurrent" Association="Self.FK_CurrentBreaker_CbCurrent">
+            <End Role="CbCurrent" EntitySet="CbCurrents" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreakers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DesignNumber_CbCurrent" Association="Self.FK_DesignNumber_CbCurrent">
+            <End Role="CbCurrent" EntitySet="CbCurrents" />
+            <End Role="DesignNumber" EntitySet="DesignNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisCurrentCb_CbCurrent" Association="Self.FK_DisCurrentCb_CbCurrent">
+            <End Role="CbCurrent" EntitySet="CbCurrents" />
+            <End Role="DisCurrentCb" EntitySet="DisCurrentCbs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VSize_CbCurrent" Association="Self.FK_VSize_CbCurrent">
+            <End Role="CbCurrent" EntitySet="CbCurrents" />
+            <End Role="VSize" EntitySet="VSizes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CbCurrentIcu_IcuValue" Association="Self.FK_CbCurrentIcu_IcuValue">
+            <End Role="IcuValue" EntitySet="IcuValues" />
+            <End Role="CbCurrentIcu" EntitySet="CbCurrentIcus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_Manufacturer" Association="Self.FK_Contactor_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="Contactor" EntitySet="Contactors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_NumericParam" Association="Self.FK_Contactor_NumericParam">
+            <End Role="NumericParam" EntitySet="NumericParams" />
+            <End Role="Contactor" EntitySet="Contactors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_NumericParam1" Association="Self.FK_Contactor_NumericParam1">
+            <End Role="NumericParam" EntitySet="NumericParams" />
+            <End Role="Contactor" EntitySet="Contactors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_NumericParam2" Association="Self.FK_Contactor_NumericParam2">
+            <End Role="NumericParam" EntitySet="NumericParams" />
+            <End Role="Contactor" EntitySet="Contactors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_Seria" Association="Self.FK_Contactor_Seria">
+            <End Role="Seria" EntitySet="Serias" />
+            <End Role="Contactor" EntitySet="Contactors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_StringParam" Association="Self.FK_Contactor_StringParam">
+            <End Role="StringParam" EntitySet="StringParams" />
+            <End Role="Contactor" EntitySet="Contactors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_StringParam1" Association="Self.FK_Contactor_StringParam1">
+            <End Role="StringParam" EntitySet="StringParams" />
+            <End Role="Contactor" EntitySet="Contactors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_StringParam2" Association="Self.FK_Contactor_StringParam2">
+            <End Role="StringParam" EntitySet="StringParams" />
+            <End Role="Contactor" EntitySet="Contactors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactor_StringParam3" Association="Self.FK_Contactor_StringParam3">
+            <End Role="StringParam" EntitySet="StringParams" />
+            <End Role="Contactor" EntitySet="Contactors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEquipment_Contactor" Association="Self.FK_ProjectEquipment_Contactor">
+            <End Role="Contactor" EntitySet="Contactors" />
+            <End Role="ProjectEquipment" EntitySet="ProjectEquipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_DisCurrent" Association="Self.FK_CurrentBreaker_DisCurrent">
+            <End Role="DisCurrent" EntitySet="DisCurrents" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreakers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_DisModel" Association="Self.FK_CurrentBreaker_DisModel">
+            <End Role="DisModel" EntitySet="DisModels" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreakers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_DisType" Association="Self.FK_CurrentBreaker_DisType">
+            <End Role="DisType" EntitySet="DisTypes" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreakers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_IcuLiteral" Association="Self.FK_CurrentBreaker_IcuLiteral">
+            <End Role="IcuLiteral" EntitySet="IcuLiterals" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreakers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_IcuValue" Association="Self.FK_CurrentBreaker_IcuValue">
+            <End Role="IcuValue" EntitySet="IcuValues" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreakers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_Manufacturer" Association="Self.FK_CurrentBreaker_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreakers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_PoleNumber" Association="Self.FK_CurrentBreaker_PoleNumber">
+            <End Role="PoleNumber" EntitySet="PoleNumbers" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreakers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_Seria" Association="Self.FK_CurrentBreaker_Seria">
+            <End Role="Seria" EntitySet="Serias" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreakers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentBreaker_Voltage" Association="Self.FK_CurrentBreaker_Voltage">
+            <End Role="Voltage" EntitySet="Voltages" />
+            <End Role="CurrentBreaker" EntitySet="CurrentBreakers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEquipment_CurrentBreaker" Association="Self.FK_ProjectEquipment_CurrentBreaker">
+            <End Role="CurrentBreaker" EntitySet="CurrentBreakers" />
+            <End Role="ProjectEquipment" EntitySet="ProjectEquipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentTransform_Manufacturer" Association="Self.FK_CurrentTransform_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="CurrentTransform" EntitySet="CurrentTransforms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEquipment_CurrentTrans" Association="Self.FK_ProjectEquipment_CurrentTrans">
+            <End Role="CurrentTransform" EntitySet="CurrentTransforms" />
+            <End Role="ProjectEquipment" EntitySet="ProjectEquipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DesignNumber_DesignType" Association="Self.FK_DesignNumber_DesignType">
+            <End Role="DesignType" EntitySet="DesignTypes" />
+            <End Role="DesignNumber" EntitySet="DesignNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DesignNumber_Manufacturer" Association="Self.FK_DesignNumber_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="DesignNumber" EntitySet="DesignNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DesignNumber_PoleNumber" Association="Self.FK_DesignNumber_PoleNumber">
+            <End Role="PoleNumber" EntitySet="PoleNumbers" />
+            <End Role="DesignNumber" EntitySet="DesignNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DesignNumber_Seria" Association="Self.FK_DesignNumber_Seria">
+            <End Role="Seria" EntitySet="Serias" />
+            <End Role="DesignNumber" EntitySet="DesignNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisCurrentCb_DisCurrent" Association="Self.FK_DisCurrentCb_DisCurrent">
+            <End Role="DisCurrent" EntitySet="DisCurrents" />
+            <End Role="DisCurrentCb" EntitySet="DisCurrentCbs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisCurrentType_DisCurrent" Association="Self.FK_DisCurrentType_DisCurrent">
+            <End Role="DisCurrent" EntitySet="DisCurrents" />
+            <End Role="DisCurrentType" EntitySet="DisCurrentTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ManufDisCurrent_DisCurrent" Association="Self.FK_ManufDisCurrent_DisCurrent">
+            <End Role="DisCurrent" EntitySet="DisCurrents" />
+            <End Role="ManufDisCurrent" EntitySet="ManufDisCurrents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisCurrentType_DisType" Association="Self.FK_DisCurrentType_DisType">
+            <End Role="DisType" EntitySet="DisTypes" />
+            <End Role="DisCurrentType" EntitySet="DisCurrentTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisTypeModel_DisModel" Association="Self.FK_DisTypeModel_DisModel">
+            <End Role="DisModel" EntitySet="DisModels" />
+            <End Role="DisTypeModel" EntitySet="DisTypeModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisTypeModel_DisType" Association="Self.FK_DisTypeModel_DisType">
+            <End Role="DisType" EntitySet="DisTypes" />
+            <End Role="DisTypeModel" EntitySet="DisTypeModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisTypeModel_Manufacturer" Association="Self.FK_DisTypeModel_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="DisTypeModel" EntitySet="DisTypeModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEquipment_EquipNote" Association="Self.FK_ProjectEquipment_EquipNote">
+            <End Role="EquipNote" EntitySet="EquipNotes" />
+            <End Role="ProjectEquipment" EntitySet="ProjectEquipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectFile_FileData" Association="Self.FK_ProjectFile_FileData">
+            <End Role="FileData" EntitySet="FileDatas" />
+            <End Role="ProjectFile" EntitySet="ProjectFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FunctionRole_Functions" Association="Self.FK_FunctionRole_Functions">
+            <End Role="Functions" EntitySet="Functions" />
+            <End Role="FunctionRole" EntitySet="FunctionRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FunctionRole_Roles" Association="Self.FK_FunctionRole_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="FunctionRole" EntitySet="FunctionRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ManufDisCurrent_Manufacturer" Association="Self.FK_ManufDisCurrent_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="ManufDisCurrent" EntitySet="ManufDisCurrents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModulEquip_Manufacturer" Association="Self.FK_ModulEquip_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="ModulEquip" EntitySet="ModulEquips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VSize_Manufacturer" Association="Self.FK_VSize_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="VSize" EntitySet="VSizes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEquipment_ModulEquip" Association="Self.FK_ProjectEquipment_ModulEquip">
+            <End Role="ModulEquip" EntitySet="ModulEquips" />
+            <End Role="ProjectEquipment" EntitySet="ProjectEquipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VSize_PoleNumber" Association="Self.FK_VSize_PoleNumber">
+            <End Role="PoleNumber" EntitySet="PoleNumbers" />
+            <End Role="VSize" EntitySet="VSizes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_ProjectIdentifier" Association="Self.FK_Project_ProjectIdentifier">
+            <End Role="ProjectNumber" EntitySet="ProjectNumbers" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_ProjectState" Association="Self.FK_Project_ProjectState">
+            <End Role="ProjectState" EntitySet="ProjectStates" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_StageProject" Association="Self.FK_Project_StageProject">
+            <End Role="ProjectStage" EntitySet="ProjectStages" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_Users" Association="Self.FK_Project_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_Users1" Association="Self.FK_Project_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_Users2" Association="Self.FK_Project_Users2">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectBlock_ProjectNumber" Association="Self.FK_ProjectBlock_ProjectNumber">
+            <End Role="ProjectNumber" EntitySet="ProjectNumbers" />
+            <End Role="ProjectBlock" EntitySet="ProjectBlocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectBlock_Schema" Association="Self.FK_ProjectBlock_Schema">
+            <End Role="Schema" EntitySet="Schemata" />
+            <End Role="ProjectBlock" EntitySet="ProjectBlocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectBlock_VSize" Association="Self.FK_ProjectBlock_VSize">
+            <End Role="VSize" EntitySet="VSizes" />
+            <End Role="ProjectBlock" EntitySet="ProjectBlocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectCbr_ProjectNumber" Association="Self.FK_ProjectCbr_ProjectNumber">
+            <End Role="ProjectNumber" EntitySet="ProjectNumbers" />
+            <End Role="ProjectEquipment" EntitySet="ProjectEquipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectFile_ProjectIdentifier" Association="Self.FK_ProjectFile_ProjectIdentifier">
+            <End Role="ProjectNumber" EntitySet="ProjectNumbers" />
+            <End Role="ProjectFile" EntitySet="ProjectFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VSize_Schema" Association="Self.FK_VSize_Schema">
+            <End Role="Schema" EntitySet="Schemata" />
+            <End Role="VSize" EntitySet="VSizes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VSize_Seria" Association="Self.FK_VSize_Seria">
+            <End Role="Seria" EntitySet="Serias" />
+            <End Role="VSize" EntitySet="VSizes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DataModelContainer" CdmEntityContainer="DataEntities">
+          <EntitySetMapping Name="BaseSizes">
+            <EntityTypeMapping TypeName="DataModel.BaseSize">
+              <MappingFragment StoreEntitySet="BaseSize">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Attribute" ColumnName="Attribute" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlockEquipments">
+            <EntityTypeMapping TypeName="DataModel.BlockEquipment">
+              <MappingFragment StoreEntitySet="BlockEquipment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdBlock" ColumnName="IdBlock" />
+                <ScalarProperty Name="IdEquip" ColumnName="IdEquip" />
+                <ScalarProperty Name="TypeEquip" ColumnName="TypeEquip" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CbCurrents">
+            <EntityTypeMapping TypeName="DataModel.CbCurrent">
+              <MappingFragment StoreEntitySet="CbCurrent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CbCurrentIcus">
+            <EntityTypeMapping TypeName="DataModel.CbCurrentIcu">
+              <MappingFragment StoreEntitySet="CbCurrentIcu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdCbCurrent" ColumnName="IdCbCurrent" />
+                <ScalarProperty Name="IdIcuValue" ColumnName="IdIcuValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contactors">
+            <EntityTypeMapping TypeName="DataModel.Contactor">
+              <MappingFragment StoreEntitySet="Contactor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdMotorPow" ColumnName="IdMotorPow" />
+                <ScalarProperty Name="IdMotorCur" ColumnName="IdMotorCur" />
+                <ScalarProperty Name="IdContCur" ColumnName="IdContCur" />
+                <ScalarProperty Name="IdHasRelay" ColumnName="IdHasRelay" />
+                <ScalarProperty Name="IdTypeCord" ColumnName="IdTypeCord" />
+                <ScalarProperty Name="IdTypeCoilCur" ColumnName="IdTypeCoilCur" />
+                <ScalarProperty Name="IdManufacturer" ColumnName="IdManufacturer" />
+                <ScalarProperty Name="IdSeria" ColumnName="IdSeria" />
+                <ScalarProperty Name="ContCatNumber" ColumnName="ContCatNumber" />
+                <ScalarProperty Name="RelayCabNumber" ColumnName="RelayCabNumber" />
+                <ScalarProperty Name="IdCurrentBreaker" ColumnName="IdCurrentBreaker" />
+                <ScalarProperty Name="ReloadCurValue" ColumnName="ReloadCurValue" />
+                <ScalarProperty Name="IdIcu" ColumnName="IdIcu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CurrentBreakers">
+            <EntityTypeMapping TypeName="DataModel.CurrentBreaker">
+              <MappingFragment StoreEntitySet="CurrentBreaker">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdManufacturer" ColumnName="IdManufacturer" />
+                <ScalarProperty Name="IdSeria" ColumnName="IdSeria" />
+                <ScalarProperty Name="IdCbCurrent" ColumnName="IdCbCurrent" />
+                <ScalarProperty Name="IdIcuLiteral" ColumnName="IdIcuLiteral" />
+                <ScalarProperty Name="IdIcuValue" ColumnName="IdIcuValue" />
+                <ScalarProperty Name="IdPoleNumber" ColumnName="IdPoleNumber" />
+                <ScalarProperty Name="IdVoltage" ColumnName="IdVoltage" />
+                <ScalarProperty Name="IdDisType" ColumnName="IdDisType" />
+                <ScalarProperty Name="IdDisModel" ColumnName="IdDisModel" />
+                <ScalarProperty Name="IdDisCurrent" ColumnName="IdDisCurrent" />
+                <ScalarProperty Name="CbCatNumber" ColumnName="CbCatNumber" />
+                <ScalarProperty Name="DisCatNumber" ColumnName="DisCatNumber" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CurrentTransforms">
+            <EntityTypeMapping TypeName="DataModel.CurrentTransform">
+              <MappingFragment StoreEntitySet="CurrentTransform">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdManufacturer" ColumnName="IdManufacturer" />
+                <ScalarProperty Name="TypeSize" ColumnName="TypeSize" />
+                <ScalarProperty Name="TransFactor" ColumnName="TransFactor" />
+                <ScalarProperty Name="MeasureClass" ColumnName="MeasureClass" />
+                <ScalarProperty Name="Power" ColumnName="Power" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DesignNumbers">
+            <EntityTypeMapping TypeName="DataModel.DesignNumber">
+              <MappingFragment StoreEntitySet="DesignNumber">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdManufacturer" ColumnName="IdManufacturer" />
+                <ScalarProperty Name="IdSeria" ColumnName="IdSeria" />
+                <ScalarProperty Name="IdCbCurrent" ColumnName="IdCbCurrent" />
+                <ScalarProperty Name="IdPoleNumber" ColumnName="IdPoleNumber" />
+                <ScalarProperty Name="IdDesignType" ColumnName="IdDesignType" />
+                <ScalarProperty Name="DesCatNumber" ColumnName="DesCatNumber" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DesignTypes">
+            <EntityTypeMapping TypeName="DataModel.DesignType">
+              <MappingFragment StoreEntitySet="DesignType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DisCurrents">
+            <EntityTypeMapping TypeName="DataModel.DisCurrent">
+              <MappingFragment StoreEntitySet="DisCurrent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DisCurrentCbs">
+            <EntityTypeMapping TypeName="DataModel.DisCurrentCb">
+              <MappingFragment StoreEntitySet="DisCurrentCb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdDisCurrent" ColumnName="IdDisCurrent" />
+                <ScalarProperty Name="IdCbCurrent" ColumnName="IdCbCurrent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DisCurrentTypes">
+            <EntityTypeMapping TypeName="DataModel.DisCurrentType">
+              <MappingFragment StoreEntitySet="DisCurrentType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdDisCurrent" ColumnName="IdDisCurrent" />
+                <ScalarProperty Name="IdDisType" ColumnName="IdDisType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DisModels">
+            <EntityTypeMapping TypeName="DataModel.DisModel">
+              <MappingFragment StoreEntitySet="DisModel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DisTypes">
+            <EntityTypeMapping TypeName="DataModel.DisType">
+              <MappingFragment StoreEntitySet="DisType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DisTypeModels">
+            <EntityTypeMapping TypeName="DataModel.DisTypeModel">
+              <MappingFragment StoreEntitySet="DisTypeModel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdDisModel" ColumnName="IdDisModel" />
+                <ScalarProperty Name="IdDisType" ColumnName="IdDisType" />
+                <ScalarProperty Name="IdManufacturer" ColumnName="IdManufacturer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EquipNotes">
+            <EntityTypeMapping TypeName="DataModel.EquipNote">
+              <MappingFragment StoreEntitySet="EquipNote">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdProjectNumber" ColumnName="IdProjectNumber" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileDatas">
+            <EntityTypeMapping TypeName="DataModel.FileData">
+              <MappingFragment StoreEntitySet="FileData">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FunctionRoles">
+            <EntityTypeMapping TypeName="DataModel.FunctionRole">
+              <MappingFragment StoreEntitySet="FunctionRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FunctionId" ColumnName="FunctionId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Functions">
+            <EntityTypeMapping TypeName="DataModel.Function">
+              <MappingFragment StoreEntitySet="Functions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+                <ScalarProperty Name="FormName" ColumnName="FormName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IcuLiterals">
+            <EntityTypeMapping TypeName="DataModel.IcuLiteral">
+              <MappingFragment StoreEntitySet="IcuLiteral">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Literal" ColumnName="Literal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IcuValues">
+            <EntityTypeMapping TypeName="DataModel.IcuValue">
+              <MappingFragment StoreEntitySet="IcuValue">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manufacturers">
+            <EntityTypeMapping TypeName="DataModel.Manufacturer">
+              <MappingFragment StoreEntitySet="Manufacturer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Literal" ColumnName="Literal" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ManufDisCurrents">
+            <EntityTypeMapping TypeName="DataModel.ManufDisCurrent">
+              <MappingFragment StoreEntitySet="ManufDisCurrent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdManufacturer" ColumnName="IdManufacturer" />
+                <ScalarProperty Name="IdDisCurrent" ColumnName="IdDisCurrent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModulEquips">
+            <EntityTypeMapping TypeName="DataModel.ModulEquip">
+              <MappingFragment StoreEntitySet="ModulEquip">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdManufacturer" ColumnName="IdManufacturer" />
+                <ScalarProperty Name="Feature2" ColumnName="Feature2" />
+                <ScalarProperty Name="Feature3" ColumnName="Feature3" />
+                <ScalarProperty Name="Feature4" ColumnName="Feature4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NumericParams">
+            <EntityTypeMapping TypeName="DataModel.NumericParam">
+              <MappingFragment StoreEntitySet="NumericParam">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PoleNumbers">
+            <EntityTypeMapping TypeName="DataModel.PoleNumber">
+              <MappingFragment StoreEntitySet="PoleNumber">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="DataModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="IdManager" ColumnName="IdManager" />
+                <ScalarProperty Name="IdImplementer" ColumnName="IdImplementer" />
+                <ScalarProperty Name="IdEditor" ColumnName="IdEditor" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IdState" ColumnName="IdState" />
+                <ScalarProperty Name="IdStage" ColumnName="IdStage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectBlocks">
+            <EntityTypeMapping TypeName="DataModel.ProjectBlock">
+              <MappingFragment StoreEntitySet="ProjectBlock">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Functional" ColumnName="Functional" />
+                <ScalarProperty Name="IdBaseH" ColumnName="IdBaseH" />
+                <ScalarProperty Name="IdBaseB" ColumnName="IdBaseB" />
+                <ScalarProperty Name="IdVSize" ColumnName="IdVSize" />
+                <ScalarProperty Name="IdSchema" ColumnName="IdSchema" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="IdProjectNumber" ColumnName="IdProjectNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectEquipments">
+            <EntityTypeMapping TypeName="DataModel.ProjectEquipment">
+              <MappingFragment StoreEntitySet="ProjectEquipment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdProjectNumber" ColumnName="IdProjectNumber" />
+                <ScalarProperty Name="IdCbr" ColumnName="IdCbr" />
+                <ScalarProperty Name="IdCont" ColumnName="IdCont" />
+                <ScalarProperty Name="IdModulEq" ColumnName="IdModulEq" />
+                <ScalarProperty Name="IdCtr" ColumnName="IdCtr" />
+                <ScalarProperty Name="Analog" ColumnName="Analog" />
+                <ScalarProperty Name="IdNote" ColumnName="IdNote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectFiles">
+            <EntityTypeMapping TypeName="DataModel.ProjectFile">
+              <MappingFragment StoreEntitySet="ProjectFile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdProjectNumber" ColumnName="IdProjectNumber" />
+                <ScalarProperty Name="IdFile" ColumnName="IdFile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectNumbers">
+            <EntityTypeMapping TypeName="DataModel.ProjectNumber">
+              <MappingFragment StoreEntitySet="ProjectNumber">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectStages">
+            <EntityTypeMapping TypeName="DataModel.ProjectStage">
+              <MappingFragment StoreEntitySet="ProjectStage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Stage" ColumnName="Stage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectStates">
+            <EntityTypeMapping TypeName="DataModel.ProjectState">
+              <MappingFragment StoreEntitySet="ProjectState">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="DataModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schemata">
+            <EntityTypeMapping TypeName="DataModel.Schema">
+              <MappingFragment StoreEntitySet="Schema">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Indexx" ColumnName="Indexx" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Serias">
+            <EntityTypeMapping TypeName="DataModel.Seria">
+              <MappingFragment StoreEntitySet="Seria">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StringParams">
+            <EntityTypeMapping TypeName="DataModel.StringParam">
+              <MappingFragment StoreEntitySet="StringParam">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DataModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Voltages">
+            <EntityTypeMapping TypeName="DataModel.Voltage">
+              <MappingFragment StoreEntitySet="Voltage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VSizes">
+            <EntityTypeMapping TypeName="DataModel.VSize">
+              <MappingFragment StoreEntitySet="VSize">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdManuf" ColumnName="IdManuf" />
+                <ScalarProperty Name="IdPoleNumber" ColumnName="IdPoleNumber" />
+                <ScalarProperty Name="IdSeria" ColumnName="IdSeria" />
+                <ScalarProperty Name="IdCbrCurrent" ColumnName="IdCbrCurrent" />
+                <ScalarProperty Name="IdSchema" ColumnName="IdSchema" />
+                <ScalarProperty Name="SizeName" ColumnName="SizeName" />
+                <ScalarProperty Name="Fraction" ColumnName="Fraction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

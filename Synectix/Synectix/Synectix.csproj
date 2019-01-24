@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FC9633D6-C94A-43A3-90B3-22444FCFD4E3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Synectix</RootNamespace>
+    <AssemblyName>Synectix</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\DIS\1_Docs\Электрощит Волга\_DB\3.0\Distribs\Synectix\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Synectix</ProductName>
+    <PublisherName>Electroshield Volga</PublisherName>
+    <MinimumRequiredVersion>1.0.0.1</MinimumRequiredVersion>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>9а.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>AB345C8DBD8B52568D288EC8B35C23CA37875415</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Synectix_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\ConfiguratorOPR\ConfiguratorOPR\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\ConfiguratorOPR\ConfiguratorOPR\bin\Debug\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppForm.cs" />
+    <Compile Include="dsReport.cs">
+      <DependentUpon>dsReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReportAnalog.cs">
+      <DependentUpon>dsReportAnalog.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReportAnalog.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReportAnalog.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBlock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBlock.Designer.cs">
+      <DependentUpon>frmBlock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConfigBlock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfigBlock.Designer.cs">
+      <DependentUpon>frmConfigBlock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInputBox.Designer.cs">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplashScreen.Designer.cs">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEquipment.Designer.cs">
+      <DependentUpon>frmEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProjectCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProjectCard.Designer.cs">
+      <DependentUpon>frmProjectCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProjectFind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProjectFind.Designer.cs">
+      <DependentUpon>frmProjectFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProjectCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProjectCreate.Designer.cs">
+      <DependentUpon>frmProjectCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReport.designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRole.Designer.cs">
+      <DependentUpon>frmRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFunction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFunction.Designer.cs">
+      <DependentUpon>frmFunction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUser.Designer.cs">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFunctionRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFunctionRole.Designer.cs">
+      <DependentUpon>frmFunctionRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="ProjectFiles.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="testFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testFile.Designer.cs">
+      <DependentUpon>testFile.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBlock.resx">
+      <DependentUpon>frmBlock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfigBlock.resx">
+      <DependentUpon>frmConfigBlock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInputBox.resx">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplashScreen.resx">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEquipment.resx">
+      <DependentUpon>frmEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFunctionRole.resx">
+      <DependentUpon>frmFunctionRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProjectCard.resx">
+      <DependentUpon>frmProjectCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProjectFind.resx">
+      <DependentUpon>frmProjectFind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProjectCreate.resx">
+      <DependentUpon>frmProjectCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRole.resx">
+      <DependentUpon>frmRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFunction.resx">
+      <DependentUpon>frmFunction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUser.resx">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Report_CurrentBreaker_Analog.rdlc" />
+    <EmbeddedResource Include="Report_CurrentBreaker.rdlc" />
+    <EmbeddedResource Include="testFile.resx">
+      <DependentUpon>testFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="dsReport.xsc">
+      <DependentUpon>dsReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsReport.xss">
+      <DependentUpon>dsReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsReportAnalog.xsc">
+      <DependentUpon>dsReportAnalog.xsd</DependentUpon>
+    </None>
+    <None Include="dsReportAnalog.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReportAnalog.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsReportAnalog.xss">
+      <DependentUpon>dsReportAnalog.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\Model.AnalogCurBreaker.datasource" />
+    <None Include="Properties\DataSources\Model.BaseSize.datasource" />
+    <None Include="Properties\DataSources\Model.CbCurrent.datasource" />
+    <None Include="Properties\DataSources\Model.CBreaker.datasource" />
+    <None Include="Properties\DataSources\Model.CbSeria.datasource" />
+    <None Include="Properties\DataSources\Model.CbVoltage.datasource" />
+    <None Include="Properties\DataSources\Model.Contactor.datasource" />
+    <None Include="Properties\DataSources\Model.CurrentTransform.datasource" />
+    <None Include="Properties\DataSources\Model.DisCurrent.datasource" />
+    <None Include="Properties\DataSources\Model.DisModel.datasource" />
+    <None Include="Properties\DataSources\Model.DisType.datasource" />
+    <None Include="Properties\DataSources\Model.Function.datasource" />
+    <None Include="Properties\DataSources\Model.FunctionRole.datasource" />
+    <None Include="Properties\DataSources\Model.IcuLiteral.datasource" />
+    <None Include="Properties\DataSources\Model.IcuValue.datasource" />
+    <None Include="Properties\DataSources\Model.Manufacturer.datasource" />
+    <None Include="Properties\DataSources\Model.NumericParam.datasource" />
+    <None Include="Properties\DataSources\Model.Order.datasource" />
+    <None Include="Properties\DataSources\Model.PolusNumber.datasource" />
+    <None Include="Properties\DataSources\Model.Project.datasource" />
+    <None Include="Properties\DataSources\Model.ProjectCbr.datasource" />
+    <None Include="Properties\DataSources\Model.ProjectCnt.datasource" />
+    <None Include="Properties\DataSources\Model.ProjectCurBreaker.datasource" />
+    <None Include="Properties\DataSources\Model.ProjectEquipment.datasource" />
+    <None Include="Properties\DataSources\Model.ProjectIdentifier.datasource" />
+    <None Include="Properties\DataSources\Model.ProjectNote.datasource" />
+    <None Include="Properties\DataSources\Model.ProjectNumber.datasource" />
+    <None Include="Properties\DataSources\Model.ProjectState.datasource" />
+    <None Include="Properties\DataSources\Model.Role.datasource" />
+    <None Include="Properties\DataSources\Model.Schema.datasource" />
+    <None Include="Properties\DataSources\Model.StageProject.datasource" />
+    <None Include="Properties\DataSources\Model.StringParam.datasource" />
+    <None Include="Properties\DataSources\Model.User.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Synectix_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{12f1febc-63e6-4f3f-b4ad-b382d2187981}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{51b5b208-3df7-48c1-b31a-bdcbfc8be192}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServicesLayer\ServicesLayer.csproj">
+      <Project>{51f9d9b2-5579-45d7-9f7f-d7421f4c0e51}</Project>
+      <Name>ServicesLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Key_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Log Out_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Preview_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Information_16x16.png" />
+    <None Include="Resources\9.png" />
+    <None Include="Resources\Stock Index Down_16x16.png" />
+    <None Include="Resources\New_16x16.png" />
+    <None Include="Resources\Edit_16x16.png" />
+    <None Include="Resources\Open_16x16.png" />
+    <None Include="Resources\cbr.png" />
+    <None Include="Resources\Previous_16x16.png" />
+    <None Include="Resources\Print_16x16.png" />
+    <None Include="Resources\Favorites_16x16.png" />
+    <None Include="Resources\Archive_16x16.png" />
+    <None Include="Resources\User_16x16.png" />
+    <None Include="Resources\Play_16x16.png" />
+    <None Include="Resources\Search_16x16.png" />
+    <None Include="Resources\track_this-v2-small.png" />
+    <None Include="Resources\Settings_16x16.png" />
+    <None Include="Resources\Presentation_16x16.png" />
+    <None Include="Resources\Help_16x16.png" />
+    <None Include="Resources\Check_16x161.png" />
+    <None Include="Resources\Text Document_16x16.png" />
+    <None Include="Resources\file_txt.bmp" />
+    <None Include="Resources\txt.png" />
+    <None Include="Resources\doc.png" />
+    <None Include="Resources\jpg.png" />
+    <None Include="Resources\mail.png" />
+    <None Include="Resources\mdb.png" />
+    <None Include="Resources\pdf.png" />
+    <None Include="Resources\png.png" />
+    <None Include="Resources\xls.png" />
+    <None Include="Resources\zip.png" />
+    <None Include="Resources\dbs.png" />
+    <None Include="Resources\adp.png" />
+    <None Include="Resources\rar.png" />
+    <None Include="Resources\bmp.png" />
+    <None Include="Resources\tiff.png" />
+    <None Include="Resources\unk.png" />
+    <None Include="Resources\gif.png" />
+    <None Include="Resources\Access 2013.png" />
+    <None Include="Resources\Word 2013.png" />
+    <None Include="Resources\Excel 2013.png" />
+    <None Include="Resources\WinRAR.png" />
+    <None Include="Resources\WinZip.png" />
+    <None Include="Resources\Filetype - JPG.png" />
+    <None Include="Resources\Filetype - PNG.png" />
+    <None Include="Resources\Filetype - TXT.png" />
+    <None Include="Resources\Adobe Reader.png" />
+    <None Include="Resources\Filetype - TIF.png" />
+    <None Include="Resources\Filetype - BMP.png" />
+    <None Include="Resources\Filetype - GIF.png" />
+    <None Include="Resources\file_gif.png" />
+    <None Include="Resources\file_xls.jpg" />
+    <None Include="Resources\Undo_16x16.png" />
+    <None Include="Resources\Redo_16x16.png" />
+    <None Include="Resources\icons8-Save.png" />
+    <None Include="Resources\icons8-Clear Symbol.png" />
+    <None Include="Resources\res_report.png" />
+    <None Include="Resources\res_hide.png" />
+    <None Include="Resources\res_show.png" />
+    <None Include="Resources\res_edit.png" />
+    <None Include="Resources\res_delete.png" />
+    <None Include="Resources\res_login.png" />
+    <None Include="Resources\res_attach.png" />
+    <None Include="Resources\res_open.png" />
+    <None Include="Resources\res_search.png" />
+    <None Include="Resources\res_analog.png" />
+    <None Include="Resources\res_base.png" />
+    <None Include="Resources\res_analog2png.png" />
+    <None Include="Resources\res_base2.png" />
+    <None Include="Resources\res_print.png" />
+    <None Include="Resources\res_check.png" />
+    <None Include="Resources\file_bmp.png" />
+    <None Include="Resources\file_doc.png" />
+    <None Include="Resources\file_jpg.png" />
+    <None Include="Resources\file_pdf.png" />
+    <None Include="Resources\file_png.png" />
+    <None Include="Resources\file_rar.png" />
+    <None Include="Resources\file_tiff.png" />
+    <None Include="Resources\file_zip.png" />
+    <None Include="Resources\res_new.png" />
+    <None Include="Resources\file_xls.png" />
+    <None Include="Resources\file_txt.png" />
+    <None Include="Resources\file_adp.png" />
+    <None Include="Resources\res_help.png" />
+    <None Include="Resources\res_info.png" />
+    <None Include="Resources\res_logout.png" />
+    <None Include="Resources\res_preview.png" />
+    <None Include="Resources\res_previous.png" />
+    <None Include="Resources\res_refresh.png" />
+    <None Include="Resources\res_settings.png" />
+    <None Include="Resources\res_user.png" />
+    <None Include="Resources\res_project.png" />
+    <None Include="Resources\res_next.png" />
+    <None Include="Resources\res_equip.png" />
+    <None Include="Resources\res_menu.png" />
+    <None Include="Resources\res_left.png" />
+    <None Include="Resources\res_right.png" />
+    <None Include="Resources\res_add.png" />
+    <Content Include="9а.ico" />
+    <None Include="Resources\freeze.png" />
+    <None Include="Resources\warm.png" />
+    <None Include="Resources\history.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\cont.png" />
+    <None Include="Resources\motor.png" />
+    <None Include="Resources\res_cancel.png" />
+    <None Include="Resources\res_change.png" />
+    <None Include="Resources\res_cube.png" />
+    <None Include="Resources\res_menu1.png" />
+    <None Include="Resources\yes.wav" />
+    <None Include="Resources\res_sound_yes.wav" />
+    <None Include="Resources\res_curtrans.png" />
+    <None Include="Resources\res_modCbr.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

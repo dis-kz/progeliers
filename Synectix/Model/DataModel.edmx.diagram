@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="85a96a2200474d08bdf31ff80d64587c" Name="Diagram1">
+        <EntityTypeShape EntityType="DataModel.BaseSize" Width="1.5" PointX="9" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.BlockEquipment" Width="1.5" PointX="13.5" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.CbCurrent" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.CbCurrentIcu" Width="1.5" PointX="14" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Contactor" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.CurrentBreaker" Width="1.5" PointX="6" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.CurrentTransform" Width="1.5" PointX="3" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.DesignNumber" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.DesignType" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.DisCurrent" Width="1.5" PointX="3.75" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.DisCurrentCb" Width="1.5" PointX="12" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.DisCurrentType" Width="1.5" PointX="9" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.DisModel" Width="1.5" PointX="3.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.DisType" Width="1.5" PointX="3.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.DisTypeModel" Width="1.5" PointX="6" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.EquipNote" Width="1.5" PointX="6" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.FileData" Width="1.5" PointX="6" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.FunctionRole" Width="1.5" PointX="12" PointY="39.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Function" Width="1.5" PointX="9.75" PointY="43.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.IcuLiteral" Width="1.5" PointX="3.75" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.IcuValue" Width="1.5" PointX="3.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Manufacturer" Width="1.5" PointX="0.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.ManufDisCurrent" Width="1.5" PointX="6" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.ModulEquip" Width="1.5" PointX="3" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.NumericParam" Width="1.5" PointX="0.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.PoleNumber" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Project" Width="1.5" PointX="11.25" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.ProjectBlock" Width="1.5" PointX="11.25" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.ProjectEquipment" Width="1.5" PointX="8.25" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.ProjectFile" Width="1.5" PointX="8.25" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.ProjectNumber" Width="1.5" PointX="6" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.ProjectStage" Width="1.5" PointX="9" PointY="34.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.ProjectState" Width="1.5" PointX="9" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Role" Width="1.5" PointX="6.75" PointY="39.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Schema" Width="1.5" PointX="9" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Seria" Width="1.5" PointX="0.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.StringParam" Width="1.5" PointX="0.75" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="9" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Voltage" Width="1.5" PointX="3.75" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.VSize" Width="1.5" PointX="9" PointY="17.375" IsExpanded="true" />
+        <AssociationConnector Association="DataModel.FK_ProjectBlock_BaseSize" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ProjectBlock_BaseSize1" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_BlockEquipment_ProjectBlock" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_BlockEquipment_ProjectEquipment" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_CbCurrentIcu_CbCurrent" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_CurrentBreaker_CbCurrent" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DesignNumber_CbCurrent" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DisCurrentCb_CbCurrent" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_VSize_CbCurrent" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_CbCurrentIcu_IcuValue" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Contactor_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Contactor_NumericParam" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Contactor_NumericParam1" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Contactor_NumericParam2" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Contactor_Seria" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Contactor_StringParam" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Contactor_StringParam1" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Contactor_StringParam2" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Contactor_StringParam3" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ProjectEquipment_Contactor" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_CurrentBreaker_DisCurrent" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_CurrentBreaker_DisModel" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_CurrentBreaker_DisType" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_CurrentBreaker_IcuLiteral" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_CurrentBreaker_IcuValue" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_CurrentBreaker_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_CurrentBreaker_PoleNumber" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_CurrentBreaker_Seria" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_CurrentBreaker_Voltage" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ProjectEquipment_CurrentBreaker" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_CurrentTransform_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ProjectEquipment_CurrentTrans" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DesignNumber_DesignType" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DesignNumber_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DesignNumber_PoleNumber" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DesignNumber_Seria" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DisCurrentCb_DisCurrent" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DisCurrentType_DisCurrent" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ManufDisCurrent_DisCurrent" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DisCurrentType_DisType" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DisTypeModel_DisModel" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DisTypeModel_DisType" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_DisTypeModel_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ProjectEquipment_EquipNote" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ProjectFile_FileData" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_FunctionRole_Functions" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_FunctionRole_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ManufDisCurrent_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ModulEquip_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_VSize_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ProjectEquipment_ModulEquip" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_VSize_PoleNumber" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Project_ProjectIdentifier" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Project_ProjectState" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Project_StageProject" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Project_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Project_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Project_Users2" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ProjectBlock_ProjectNumber" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ProjectBlock_Schema" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ProjectBlock_VSize" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ProjectCbr_ProjectNumber" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_ProjectFile_ProjectIdentifier" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Users_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_VSize_Schema" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_VSize_Seria" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

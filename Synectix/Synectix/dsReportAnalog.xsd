@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsReportAnalog" targetNamespace="http://tempuri.org/dsReportAnalog.xsd" xmlns:mstns="http://tempuri.org/dsReportAnalog.xsd" xmlns="http://tempuri.org/dsReportAnalog.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="synectixConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="synectixConnectionString2 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Synectix.Properties.Settings.GlobalReference.Default.synectixConnectionString2" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dtTabAdapterAnalog" GeneratorDataComponentClassName="dtTabAdapterAnalog" Name="dtReportAnalog" UserDataComponentName="dtTabAdapterAnalog">
+            <MainSource>
+              <DbSource ConnectionRef="synectixConnectionString2 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+  EquipNote.Text AS colConNum
+ ,Manufacturer.Name AS colManufacturer
+ ,Seria.Name AS colSeria
+ ,DisCurrent.Value AS colCbCurrent
+ ,IcuLiteral.Literal AS colIcuLiteral
+ ,PoleNumber.Number AS colPoleNumber
+ ,DisModel.Name AS colDisModel
+ ,DisCurrent.Value AS colDisCurrent
+ ,CurrentBreaker.CbCatNumber AS colCbCatNumber
+ ,CurrentBreaker.DisCatNumber AS colDisCatNumber
+ ,CurrentBreaker.Note AS colNote
+FROM dbo.CurrentBreaker
+INNER JOIN dbo.Manufacturer
+  ON CurrentBreaker.IdManufacturer = Manufacturer.Id
+INNER JOIN dbo.Seria
+  ON CurrentBreaker.IdSeria = Seria.Id
+INNER JOIN dbo.CbCurrent
+  ON CurrentBreaker.IdCbCurrent = CbCurrent.Id
+INNER JOIN dbo.IcuLiteral
+  ON CurrentBreaker.IdIcuLiteral = IcuLiteral.Id
+INNER JOIN dbo.PoleNumber
+  ON CurrentBreaker.IdPoleNumber = PoleNumber.Id
+INNER JOIN dbo.DisModel
+  ON CurrentBreaker.IdDisModel = DisModel.Id
+INNER JOIN dbo.DisCurrent
+  ON CurrentBreaker.IdDisCurrent = DisCurrent.Id
+INNER JOIN dbo.ProjectEquipment
+  ON ProjectEquipment.IdCbr = CurrentBreaker.Id
+INNER JOIN dbo.ProjectNumber
+  ON ProjectEquipment.IdProjectNumber = ProjectNumber.Id
+INNER JOIN dbo.EquipNote
+  ON ProjectEquipment.IdNote = EquipNote.Id
+WHERE ProjectNumber.Id = 1
+AND ProjectEquipment.Analog = 0
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="colConNum" DataSetColumn="colConNum" />
+              <Mapping SourceColumn="colManufacturer" DataSetColumn="colManufacturer" />
+              <Mapping SourceColumn="colSeria" DataSetColumn="colSeria" />
+              <Mapping SourceColumn="colCbCurrent" DataSetColumn="colCbCurrent" />
+              <Mapping SourceColumn="colIcuLiteral" DataSetColumn="colIcuLiteral" />
+              <Mapping SourceColumn="colPoleNumber" DataSetColumn="colPoleNumber" />
+              <Mapping SourceColumn="colDisModel" DataSetColumn="colDisModel" />
+              <Mapping SourceColumn="colDisCurrent" DataSetColumn="colDisCurrent" />
+              <Mapping SourceColumn="colCbCatNumber" DataSetColumn="colCbCatNumber" />
+              <Mapping SourceColumn="colDisCatNumber" DataSetColumn="colDisCatNumber" />
+              <Mapping SourceColumn="colNote" DataSetColumn="colNote" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsReportAnalog" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReportAnalog" msprop:Generator_UserDSName="dsReportAnalog">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtReportAnalog" msprop:Generator_TableClassName="dtReportAnalogDataTable" msprop:Generator_TableVarName="tabledtReportAnalog" msprop:Generator_TablePropName="dtReportAnalog" msprop:Generator_RowDeletingName="dtReportAnalogRowDeleting" msprop:Generator_RowChangingName="dtReportAnalogRowChanging" msprop:Generator_RowEvHandlerName="dtReportAnalogRowChangeEventHandler" msprop:Generator_RowDeletedName="dtReportAnalogRowDeleted" msprop:Generator_UserTableName="dtReportAnalog" msprop:Generator_RowChangedName="dtReportAnalogRowChanged" msprop:Generator_RowEvArgName="dtReportAnalogRowChangeEvent" msprop:Generator_RowClassName="dtReportAnalogRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="colConNum" msprop:Generator_ColumnVarNameInTable="columncolConNum" msprop:Generator_ColumnPropNameInRow="colConNum" msprop:Generator_ColumnPropNameInTable="colConNumColumn" msprop:Generator_UserColumnName="colConNum" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="colManufacturer" msprop:Generator_ColumnVarNameInTable="columncolManufacturer" msprop:Generator_ColumnPropNameInRow="colManufacturer" msprop:Generator_ColumnPropNameInTable="colManufacturerColumn" msprop:Generator_UserColumnName="colManufacturer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="colSeria" msprop:Generator_ColumnVarNameInTable="columncolSeria" msprop:Generator_ColumnPropNameInRow="colSeria" msprop:Generator_ColumnPropNameInTable="colSeriaColumn" msprop:Generator_UserColumnName="colSeria">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="colCbCurrent" msprop:Generator_ColumnVarNameInTable="columncolCbCurrent" msprop:Generator_ColumnPropNameInRow="colCbCurrent" msprop:Generator_ColumnPropNameInTable="colCbCurrentColumn" msprop:Generator_UserColumnName="colCbCurrent" type="xs:double" />
+              <xs:element name="colIcuLiteral" msprop:Generator_ColumnVarNameInTable="columncolIcuLiteral" msprop:Generator_ColumnPropNameInRow="colIcuLiteral" msprop:Generator_ColumnPropNameInTable="colIcuLiteralColumn" msprop:Generator_UserColumnName="colIcuLiteral">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="colPoleNumber" msprop:Generator_ColumnVarNameInTable="columncolPoleNumber" msprop:Generator_ColumnPropNameInRow="colPoleNumber" msprop:Generator_ColumnPropNameInTable="colPoleNumberColumn" msprop:Generator_UserColumnName="colPoleNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="colDisModel" msprop:Generator_ColumnVarNameInTable="columncolDisModel" msprop:Generator_ColumnPropNameInRow="colDisModel" msprop:Generator_ColumnPropNameInTable="colDisModelColumn" msprop:Generator_UserColumnName="colDisModel">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="colDisCurrent" msprop:Generator_ColumnVarNameInTable="columncolDisCurrent" msprop:Generator_ColumnPropNameInRow="colDisCurrent" msprop:Generator_ColumnPropNameInTable="colDisCurrentColumn" msprop:Generator_UserColumnName="colDisCurrent" type="xs:double" />
+              <xs:element name="colCbCatNumber" msprop:Generator_ColumnVarNameInTable="columncolCbCatNumber" msprop:Generator_ColumnPropNameInRow="colCbCatNumber" msprop:Generator_ColumnPropNameInTable="colCbCatNumberColumn" msprop:Generator_UserColumnName="colCbCatNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="colDisCatNumber" msprop:Generator_ColumnVarNameInTable="columncolDisCatNumber" msprop:Generator_ColumnPropNameInRow="colDisCatNumber" msprop:Generator_ColumnPropNameInTable="colDisCatNumberColumn" msprop:Generator_UserColumnName="colDisCatNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="colNote" msprop:Generator_ColumnVarNameInTable="columncolNote" msprop:Generator_ColumnPropNameInRow="colNote" msprop:Generator_ColumnPropNameInTable="colNoteColumn" msprop:Generator_UserColumnName="colNote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
