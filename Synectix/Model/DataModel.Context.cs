@@ -16,7 +16,7 @@ namespace Model
     public partial class DataEntities : DbContext
     {
         public DataEntities()
-            : base("name=DataEntities")
+            : base(SynectixConnection.Instance.GetConnectionString(1))
         {
         }
     

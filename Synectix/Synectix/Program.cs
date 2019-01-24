@@ -18,7 +18,9 @@ namespace Synectix
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmLogin());
 
+
             //Тестовые запуски
+            //Application.Run(new frmUser());
         }
     }
 }
