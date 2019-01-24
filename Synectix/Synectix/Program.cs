@@ -16,11 +16,11 @@ namespace Synectix
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            //Application.Run(new frmLogin());
 
 
             //Тестовые запуски
-            //Application.Run(new frmUser());
+            Application.Run(new frmFunction());
         }
     }
 }

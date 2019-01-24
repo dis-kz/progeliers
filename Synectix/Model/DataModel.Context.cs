@@ -42,8 +42,8 @@ namespace Model
         public virtual DbSet<DisTypeModel> DisTypeModels { get; set; }
         public virtual DbSet<EquipNote> EquipNotes { get; set; }
         public virtual DbSet<FileData> FileDatas { get; set; }
-        public virtual DbSet<FunctionRole> FunctionRoles { get; set; }
         public virtual DbSet<Function> Functions { get; set; }
+        public virtual DbSet<FunctionRole> FunctionRoles { get; set; }
         public virtual DbSet<IcuLiteral> IcuLiterals { get; set; }
         public virtual DbSet<IcuValue> IcuValues { get; set; }
         public virtual DbSet<Manufacturer> Manufacturers { get; set; }

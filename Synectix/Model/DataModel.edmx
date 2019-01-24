@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище DataModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BaseSize">
           <Key>
             <PropertyRef Name="Id" />
@@ -174,6 +174,14 @@
           <Property Name="Author" Type="nvarchar" MaxLength="255" />
           <Property Name="Data" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="Function">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FunctionName" Type="nvarchar" MaxLength="200" />
+          <Property Name="FormName" Type="varchar" MaxLength="255" />
+        </EntityType>
         <EntityType Name="FunctionRole">
           <Key>
             <PropertyRef Name="Id" />
@@ -181,14 +189,6 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FunctionId" Type="int" />
           <Property Name="RoleId" Type="int" />
-        </EntityType>
-        <EntityType Name="Functions">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FunctionName" Type="nvarchar" MaxLength="200" />
-          <Property Name="FormName" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="IcuLiteral">
           <Key>
@@ -316,7 +316,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="State" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="Roles">
+        <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -346,7 +346,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Value" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <EntityType Name="Users">
+        <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -809,10 +809,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FunctionRole_Functions">
-          <End Role="Functions" Type="Self.Functions" Multiplicity="0..1" />
+          <End Role="Function" Type="Self.Function" Multiplicity="0..1" />
           <End Role="FunctionRole" Type="Self.FunctionRole" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Functions">
+            <Principal Role="Function">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="FunctionRole">
@@ -821,10 +821,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FunctionRole_Roles">
-          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="FunctionRole" Type="Self.FunctionRole" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Roles">
+            <Principal Role="Role">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="FunctionRole">
@@ -905,10 +905,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Project_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Project" Type="Self.Project" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Users">
+            <Principal Role="User">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Project">
@@ -917,10 +917,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Project_Users1">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Project" Type="Self.Project" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Users">
+            <Principal Role="User">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Project">
@@ -929,10 +929,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Project_Users2">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Project" Type="Self.Project" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Users">
+            <Principal Role="User">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Project">
@@ -1097,13 +1097,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Users_Roles">
-          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
-          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Roles">
+            <Principal Role="Role">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Users">
+            <Dependent Role="User">
               <PropertyRef Name="RoleId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1168,7 +1168,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище DataModelContainer">
+        <EntityContainer Name="DataModelStoreContainer">
           <EntitySet Name="BaseSize" EntityType="Self.BaseSize" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BlockEquipment" EntityType="Self.BlockEquipment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CbCurrent" EntityType="Self.CbCurrent" Schema="dbo" store:Type="Tables" />
@@ -1186,8 +1186,8 @@
           <EntitySet Name="DisTypeModel" EntityType="Self.DisTypeModel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EquipNote" EntityType="Self.EquipNote" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FileData" EntityType="Self.FileData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Function" EntityType="Self.Function" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FunctionRole" EntityType="Self.FunctionRole" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Functions" EntityType="Self.Functions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IcuLiteral" EntityType="Self.IcuLiteral" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IcuValue" EntityType="Self.IcuValue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" Schema="dbo" store:Type="Tables" />
@@ -1202,11 +1202,11 @@
           <EntitySet Name="ProjectNumber" EntityType="Self.ProjectNumber" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProjectStage" EntityType="Self.ProjectStage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProjectState" EntityType="Self.ProjectState" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Schema" EntityType="Self.Schema" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Seria" EntityType="Self.Seria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StringParam" EntityType="Self.StringParam" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Voltage" EntityType="Self.Voltage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VSize" EntityType="Self.VSize" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BlockEquipment_ProjectBlock" Association="Self.FK_BlockEquipment_ProjectBlock">
@@ -1354,11 +1354,11 @@
             <End Role="DisTypeModel" EntitySet="DisTypeModel" />
           </AssociationSet>
           <AssociationSet Name="FK_FunctionRole_Functions" Association="Self.FK_FunctionRole_Functions">
-            <End Role="Functions" EntitySet="Functions" />
+            <End Role="Function" EntitySet="Function" />
             <End Role="FunctionRole" EntitySet="FunctionRole" />
           </AssociationSet>
           <AssociationSet Name="FK_FunctionRole_Roles" Association="Self.FK_FunctionRole_Roles">
-            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Role" EntitySet="Role" />
             <End Role="FunctionRole" EntitySet="FunctionRole" />
           </AssociationSet>
           <AssociationSet Name="FK_ManufDisCurrent_DisCurrent" Association="Self.FK_ManufDisCurrent_DisCurrent">
@@ -1386,15 +1386,15 @@
             <End Role="Project" EntitySet="Project" />
           </AssociationSet>
           <AssociationSet Name="FK_Project_Users" Association="Self.FK_Project_Users">
-            <End Role="Users" EntitySet="Users" />
+            <End Role="User" EntitySet="User" />
             <End Role="Project" EntitySet="Project" />
           </AssociationSet>
           <AssociationSet Name="FK_Project_Users1" Association="Self.FK_Project_Users1">
-            <End Role="Users" EntitySet="Users" />
+            <End Role="User" EntitySet="User" />
             <End Role="Project" EntitySet="Project" />
           </AssociationSet>
           <AssociationSet Name="FK_Project_Users2" Association="Self.FK_Project_Users2">
-            <End Role="Users" EntitySet="Users" />
+            <End Role="User" EntitySet="User" />
             <End Role="Project" EntitySet="Project" />
           </AssociationSet>
           <AssociationSet Name="FK_ProjectBlock_BaseSize" Association="Self.FK_ProjectBlock_BaseSize">
@@ -1450,8 +1450,8 @@
             <End Role="ProjectFile" EntitySet="ProjectFile" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
-            <End Role="Roles" EntitySet="Roles" />
-            <End Role="Users" EntitySet="Users" />
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
           <AssociationSet Name="FK_VSize_CbCurrent" Association="Self.FK_VSize_CbCurrent">
             <End Role="CbCurrent" EntitySet="CbCurrent" />
@@ -1706,16 +1706,6 @@
           <Property Name="Data" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="ProjectFiles" Relationship="Self.FK_ProjectFile_FileData" FromRole="FileData" ToRole="ProjectFile" />
         </EntityType>
-        <EntityType Name="FunctionRole">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FunctionId" Type="Int32" />
-          <Property Name="RoleId" Type="Int32" />
-          <NavigationProperty Name="Function" Relationship="Self.FK_FunctionRole_Functions" FromRole="FunctionRole" ToRole="Functions" />
-          <NavigationProperty Name="Role" Relationship="Self.FK_FunctionRole_Roles" FromRole="FunctionRole" ToRole="Roles" />
-        </EntityType>
         <EntityType Name="Function">
           <Key>
             <PropertyRef Name="Id" />
@@ -1723,7 +1713,17 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FunctionName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="FormName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="FunctionRoles" Relationship="Self.FK_FunctionRole_Functions" FromRole="Functions" ToRole="FunctionRole" />
+          <NavigationProperty Name="FunctionRoles" Relationship="Self.FK_FunctionRole_Functions" FromRole="Function" ToRole="FunctionRole" />
+        </EntityType>
+        <EntityType Name="FunctionRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FunctionId" Type="Int32" />
+          <Property Name="RoleId" Type="Int32" />
+          <NavigationProperty Name="Function" Relationship="Self.FK_FunctionRole_Functions" FromRole="FunctionRole" ToRole="Function" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_FunctionRole_Roles" FromRole="FunctionRole" ToRole="Role" />
         </EntityType>
         <EntityType Name="IcuLiteral">
           <Key>
@@ -1818,9 +1818,9 @@
           <NavigationProperty Name="ProjectNumber" Relationship="Self.FK_Project_ProjectIdentifier" FromRole="Project" ToRole="ProjectNumber" />
           <NavigationProperty Name="ProjectState" Relationship="Self.FK_Project_ProjectState" FromRole="Project" ToRole="ProjectState" />
           <NavigationProperty Name="ProjectStage" Relationship="Self.FK_Project_StageProject" FromRole="Project" ToRole="ProjectStage" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Project_Users" FromRole="Project" ToRole="Users" />
-          <NavigationProperty Name="User1" Relationship="Self.FK_Project_Users1" FromRole="Project" ToRole="Users" />
-          <NavigationProperty Name="User2" Relationship="Self.FK_Project_Users2" FromRole="Project" ToRole="Users" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Project_Users" FromRole="Project" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_Project_Users1" FromRole="Project" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_Project_Users2" FromRole="Project" ToRole="User" />
         </EntityType>
         <EntityType Name="ProjectBlock">
           <Key>
@@ -1905,8 +1905,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="FunctionRoles" Relationship="Self.FK_FunctionRole_Roles" FromRole="Roles" ToRole="FunctionRole" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
+          <NavigationProperty Name="FunctionRoles" Relationship="Self.FK_FunctionRole_Roles" FromRole="Role" ToRole="FunctionRole" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Roles" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="Schema">
           <Key>
@@ -1950,10 +1950,10 @@
           <Property Name="Login" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Projects" Relationship="Self.FK_Project_Users" FromRole="Users" ToRole="Project" />
-          <NavigationProperty Name="Projects1" Relationship="Self.FK_Project_Users1" FromRole="Users" ToRole="Project" />
-          <NavigationProperty Name="Projects2" Relationship="Self.FK_Project_Users2" FromRole="Users" ToRole="Project" />
-          <NavigationProperty Name="Role" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Project_Users" FromRole="User" ToRole="Project" />
+          <NavigationProperty Name="Projects1" Relationship="Self.FK_Project_Users1" FromRole="User" ToRole="Project" />
+          <NavigationProperty Name="Projects2" Relationship="Self.FK_Project_Users2" FromRole="User" ToRole="Project" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Users_Roles" FromRole="User" ToRole="Role" />
         </EntityType>
         <EntityType Name="Voltage">
           <Key>
@@ -2523,10 +2523,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FunctionRole_Functions">
-          <End Role="Functions" Type="Self.Function" Multiplicity="0..1" />
+          <End Role="Function" Type="Self.Function" Multiplicity="0..1" />
           <End Role="FunctionRole" Type="Self.FunctionRole" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Functions">
+            <Principal Role="Function">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="FunctionRole">
@@ -2535,10 +2535,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FunctionRole_Roles">
-          <End Role="Roles" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="FunctionRole" Type="Self.FunctionRole" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Roles">
+            <Principal Role="Role">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="FunctionRole">
@@ -2643,10 +2643,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Project_Users">
-          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Project" Type="Self.Project" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Users">
+            <Principal Role="User">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Project">
@@ -2655,10 +2655,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Project_Users1">
-          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Project" Type="Self.Project" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Users">
+            <Principal Role="User">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Project">
@@ -2667,10 +2667,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Project_Users2">
-          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Project" Type="Self.Project" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Users">
+            <Principal Role="User">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Project">
@@ -2739,13 +2739,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Users_Roles">
-          <End Role="Roles" Type="Self.Role" Multiplicity="0..1" />
-          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Roles">
+            <Principal Role="Role">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Users">
+            <Dependent Role="User">
               <PropertyRef Name="RoleId" />
             </Dependent>
           </ReferentialConstraint>
@@ -2774,7 +2774,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DataEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BaseSizes" EntityType="Self.BaseSize" />
           <EntitySet Name="BlockEquipments" EntityType="Self.BlockEquipment" />
           <EntitySet Name="CbCurrents" EntityType="Self.CbCurrent" />
@@ -2792,8 +2792,8 @@
           <EntitySet Name="DisTypeModels" EntityType="Self.DisTypeModel" />
           <EntitySet Name="EquipNotes" EntityType="Self.EquipNote" />
           <EntitySet Name="FileDatas" EntityType="Self.FileData" />
-          <EntitySet Name="FunctionRoles" EntityType="Self.FunctionRole" />
           <EntitySet Name="Functions" EntityType="Self.Function" />
+          <EntitySet Name="FunctionRoles" EntityType="Self.FunctionRole" />
           <EntitySet Name="IcuLiterals" EntityType="Self.IcuLiteral" />
           <EntitySet Name="IcuValues" EntityType="Self.IcuValue" />
           <EntitySet Name="Manufacturers" EntityType="Self.Manufacturer" />
@@ -2996,11 +2996,11 @@
             <End Role="ProjectFile" EntitySet="ProjectFiles" />
           </AssociationSet>
           <AssociationSet Name="FK_FunctionRole_Functions" Association="Self.FK_FunctionRole_Functions">
-            <End Role="Functions" EntitySet="Functions" />
+            <End Role="Function" EntitySet="Functions" />
             <End Role="FunctionRole" EntitySet="FunctionRoles" />
           </AssociationSet>
           <AssociationSet Name="FK_FunctionRole_Roles" Association="Self.FK_FunctionRole_Roles">
-            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Role" EntitySet="Roles" />
             <End Role="FunctionRole" EntitySet="FunctionRoles" />
           </AssociationSet>
           <AssociationSet Name="FK_ManufDisCurrent_Manufacturer" Association="Self.FK_ManufDisCurrent_Manufacturer">
@@ -3036,15 +3036,15 @@
             <End Role="Project" EntitySet="Projects" />
           </AssociationSet>
           <AssociationSet Name="FK_Project_Users" Association="Self.FK_Project_Users">
-            <End Role="Users" EntitySet="Users" />
+            <End Role="User" EntitySet="Users" />
             <End Role="Project" EntitySet="Projects" />
           </AssociationSet>
           <AssociationSet Name="FK_Project_Users1" Association="Self.FK_Project_Users1">
-            <End Role="Users" EntitySet="Users" />
+            <End Role="User" EntitySet="Users" />
             <End Role="Project" EntitySet="Projects" />
           </AssociationSet>
           <AssociationSet Name="FK_Project_Users2" Association="Self.FK_Project_Users2">
-            <End Role="Users" EntitySet="Users" />
+            <End Role="User" EntitySet="Users" />
             <End Role="Project" EntitySet="Projects" />
           </AssociationSet>
           <AssociationSet Name="FK_ProjectBlock_ProjectNumber" Association="Self.FK_ProjectBlock_ProjectNumber">
@@ -3068,8 +3068,8 @@
             <End Role="ProjectFile" EntitySet="ProjectFiles" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
-            <End Role="Roles" EntitySet="Roles" />
-            <End Role="Users" EntitySet="Users" />
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
           </AssociationSet>
           <AssociationSet Name="FK_VSize_Schema" Association="Self.FK_VSize_Schema">
             <End Role="Schema" EntitySet="Schemata" />
@@ -3085,7 +3085,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище DataModelContainer" CdmEntityContainer="DataEntities">
+        <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="BaseSizes">
             <EntityTypeMapping TypeName="DataModel.BaseSize">
               <MappingFragment StoreEntitySet="BaseSize">
@@ -3272,21 +3272,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Functions">
+            <EntityTypeMapping TypeName="DataModel.Function">
+              <MappingFragment StoreEntitySet="Function">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+                <ScalarProperty Name="FormName" ColumnName="FormName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="FunctionRoles">
             <EntityTypeMapping TypeName="DataModel.FunctionRole">
               <MappingFragment StoreEntitySet="FunctionRole">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FunctionId" ColumnName="FunctionId" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Functions">
-            <EntityTypeMapping TypeName="DataModel.Function">
-              <MappingFragment StoreEntitySet="Functions">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
-                <ScalarProperty Name="FormName" ColumnName="FormName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3432,7 +3432,7 @@
           </EntitySetMapping>
           <EntitySetMapping Name="Roles">
             <EntityTypeMapping TypeName="DataModel.Role">
-              <MappingFragment StoreEntitySet="Roles">
+              <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
               </MappingFragment>
@@ -3466,7 +3466,7 @@
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="DataModel.User">
-              <MappingFragment StoreEntitySet="Users">
+              <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
@@ -3514,7 +3514,7 @@
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

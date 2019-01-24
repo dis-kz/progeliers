@@ -107,7 +107,13 @@ namespace DataLayer
         {
             using (DataEntities db = new DataEntities())
             {
-                return db.Roles.ToList();
+                List<Role> list = new List<Role>();
+                try { list = db.Roles.ToList(); }
+                catch(Exception ex)
+                {
+
+                }
+                return list;
             }
         }
 
@@ -195,7 +201,16 @@ namespace DataLayer
         {
             using (DataEntities db = new DataEntities())
             {
-                return db.FunctionRoles.Where(r => r.RoleId == obj.Id).ToList();
+                List <FunctionRole> list = new List<FunctionRole>();
+                try
+                {
+                    list = db.FunctionRoles.Where(r => r.RoleId == obj.Id).ToList();
+                }
+                catch(Exception ex)
+                {
+                    string s = ex.InnerException.Message;
+                }
+                return list;
             }
         }
 
