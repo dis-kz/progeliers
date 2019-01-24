@@ -8,11 +8,18 @@ namespace Model
 {
     public class SynectixConnection
     {
-        string _serverName = @".\SQLEXPRESS"; /*@"SERVER\SQLSYNECTIX";*/
+        //string _serverName = @".\SQLEXPRESS"; /*@"SERVER\SQLSYNECTIX";*/
+        //string _modelName = "DataModel";
+        //string _database = "synectix";
+        //string _userName = "confdis1";
+        //string _password = "conf0171017Dis";
+        //string _connectionString = "";
+
+        string _serverName = @"localhost"; /*@"SERVER\SQLSYNECTIX";*/
         string _modelName = "DataModel";
         string _database = "synectix";
-        string _userName = "confdis1";
-        string _password = "conf0171017Dis";
+        string _userName = "sa";
+        string _password = "Pass123";
         string _connectionString = "";
 
         private static SynectixConnection _instance;
